@@ -14,13 +14,15 @@
   ├── frontend/
   ├── docs/
   │   ├── spec.md           # Move from root
-  │   └── todo.md           # Move from root
+  │   ├── todo.md           # Move from root
+  │   └── prompt_plan.md    # Move from root
   ├── testcases/            # Already exists
   └── README.md             # Keep in root
   ```
 - [ ] Move `testcases/` folder to `backend/tests/test_data/`
 - [ ] Move `spec.md` to `docs/spec.md`
 - [ ] Move `todo.md` to `docs/todo.md`
+- [ ] Move `prompt_plan.md` to `docs/prompt_plan.md`
 - [ ] Create `.gitignore` file in root with Python, Node, .env exclusions
 
 ### Backend Initial Setup
