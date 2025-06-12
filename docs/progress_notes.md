@@ -10,3 +10,5 @@
 - config.py fixes — updated Pydantic v2 compatibility, project naming
 - main.py fixes — updated project title to MediLink AI
 - deps.py — dependency injection for FastAPI routes
+- schemas.py — Pydantic models for API data validation
+- test PDF analysis — comprehensive analysis of 6 test documents with extraction strategies

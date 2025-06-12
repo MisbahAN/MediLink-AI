@@ -84,13 +84,18 @@
 ### Model/Schema Files
 
 - [x] Create `backend/app/models/__init__.py`
-- [ ] Create `backend/app/models/schemas.py`:
+- [x] Create `backend/app/models/schemas.py`:
   - `UploadResponse` model
   - `ProcessingStatus` enum and model
   - `ExtractedData` model with confidence
   - `PAFormField` model
   - `MissingField` model
   - `ProcessingResult` model
+- [x] Analyze test PDFs and update documentation:
+  - Comprehensive analysis of all 6 test documents
+  - Updated `docs/pa_referral_guide.md` with extraction strategies
+  - Identified PA forms (native text) vs referrals (scanned images)
+  - Documented confidence scoring framework and validation requirements
 
 ### Service Layer Structure
 
