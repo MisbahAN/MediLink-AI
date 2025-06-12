@@ -23,3 +23,6 @@
 - file_handler.py — PDF validation and session management utilities
 - Mistral-primary architecture — complete reversal of AI service hierarchy
 - Backend import fixes — resolved missing module errors for clean startup
+- openai_service.py — intelligent field mapping with GPT-4 and confidence scoring
+- field_mapper.py — specialized medical field mapping engine with normalization utilities
+- concurrent_processor.py — async processing engine with worker pools and progress tracking

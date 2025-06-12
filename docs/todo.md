@@ -165,7 +165,7 @@
 
 ### OpenAI Service
 
-- [ ] Create `backend/app/services/openai_service.py`:
+- [x] Create `backend/app/services/openai_service.py`:
   - `OpenAIService` class
   - `create_field_mapping_prompt()` method
   - `extract_and_map_fields()` method
@@ -173,7 +173,7 @@
 
 ### Field Mapping Engine
 
-- [ ] Create `backend/app/services/field_mapper.py`:
+- [x] Create `backend/app/services/field_mapper.py`:
   - `FieldMapper` class
   - `normalize_field_name()` method
   - `match_patient_name()` method
@@ -191,7 +191,7 @@
 
 ### Concurrent Processing
 
-- [ ] Create `backend/app/services/concurrent_processor.py`:
+- [x] Create `backend/app/services/concurrent_processor.py`:
   - `AsyncProcessor` class
   - `process_pages_concurrently()` method
   - `create_worker_pool()` method
