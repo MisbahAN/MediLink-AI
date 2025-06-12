@@ -51,9 +51,9 @@
 - [x] Create `backend/.env` file for API keys
 - [x] Create `backend/.env.example`:
   ```
+  MISTRAL_API_KEY=your_key_here
   GEMINI_API_KEY=your_key_here
   OPENAI_API_KEY=your_key_here
-  MISTRAL_API_KEY=your_key_here
   REDIS_URL=redis://localhost:6379
   UPLOAD_DIR=./uploads
   MAX_FILE_SIZE=52428800
@@ -65,8 +65,9 @@
 - [x] Create `backend/app/main.py`:
   - FastAPI app initialization
   - CORS middleware setup
-  - Include routers
+  - Include routers (upload, health)
   - Exception handlers
+  - Fixed import errors for non-existent modules
 - [x] Create `backend/app/api/__init__.py`
 - [x] Create `backend/app/api/routes/__init__.py`
 
@@ -76,7 +77,7 @@
 - [x] Create `backend/app/core/config.py`:
   - Settings class with all env variables
   - File upload settings
-  - API configuration
+  - API configuration (Mistral primary, Gemini fallback)
 - [x] Create `backend/app/core/deps.py`:
   - Common dependencies
   - Settings dependency
@@ -104,7 +105,7 @@
 
 ### Upload Route Implementation
 
-- [ ] Create `backend/app/api/routes/upload.py`:
+- [x] Create `backend/app/api/routes/upload.py`:
   - POST `/api/upload` endpoint
   - File validation logic
   - Session ID generation
@@ -112,7 +113,7 @@
 
 ### Storage Service Implementation
 
-- [ ] Create `backend/app/services/storage.py`:
+- [x] Create `backend/app/services/storage.py`:
   - `FileStorage` class
   - `save_file()` method
   - `get_file()` method
@@ -121,43 +122,46 @@
 
 ### Basic PDF Extractor
 
-- [ ] Create `backend/app/services/pdf_extractor.py`:
+- [x] Create `backend/app/services/pdf_extractor.py`:
   - `PDFExtractor` base class
   - `extract_text_from_pdf()` method
   - `get_page_count()` method
   - `chunk_pdf()` method for large files
 
-### Gemini Service Setup
+### Gemini Service Setup (FALLBACK)
 
-- [ ] Create `backend/app/services/gemini_service.py`:
-  - `GeminiService` class
+- [x] Create `backend/app/services/gemini_service_fallback.py`:
+  - `GeminiService` class (FALLBACK ONLY)
   - `initialize_client()` method
   - `extract_from_pdf()` method
-  - Basic confidence scoring
+  - Vision-based extraction for Mistral failures
   - Retry logic implementation
 
 ### Health Check Route
 
-- [ ] Create `backend/app/api/routes/health.py`:
+- [x] Create `backend/app/api/routes/health.py`:
   - GET `/api/health` endpoint
-  - Service connectivity checks
+  - Service connectivity checks for Mistral (primary) and Gemini (fallback)
+  - Individual health endpoints for each AI service
+  - Configuration validation with Mistral-first priority
 
 ### File Handler Utilities
 
-- [ ] Create `backend/app/utils/file_handler.py`:
+- [x] Create `backend/app/utils/file_handler.py`:
   - `validate_pdf()` function
   - `get_file_size()` function
   - `generate_session_id()` function
 
 ## Day 3-4: AI Integration & Processing
 
-### Mistral OCR Service
+### Mistral OCR Service (PRIMARY)
 
-- [ ] Create `backend/app/services/mistral_service.py`:
+- [x] Create `backend/app/services/mistral_service.py`:
   - `MistralService` class
-  - `extract_with_ocr()` method
-  - Confidence threshold logic
-  - Integration with extraction pipeline
+  - `extract_from_pdf()` method (PRIMARY OCR)
+  - Dedicated OCR API integration
+  - High confidence scoring (0.85-0.95)
+  - Cost-effective processing ($0.001/page)
 
 ### OpenAI Service
 

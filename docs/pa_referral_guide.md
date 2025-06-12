@@ -455,8 +455,8 @@ fallback_required = False  # Native text works well
 ```python
 # Multi-method extraction pipeline for scanned referrals
 extraction_pipeline = [
-    "gemini_vision",      # Primary: AI vision model (confidence: 0.75-0.90)
-    "ocr_tesseract",      # Secondary: OCR (confidence: 0.50-0.75)
+    "mistral_ocr",        # Primary: Dedicated OCR API (confidence: 0.85-0.95)
+    "gemini_vision",      # Secondary: AI vision model (confidence: 0.75-0.90)
     "manual_review"       # Fallback: Human review (confidence: 1.0)
 ]
 minimum_confidence = 0.60
@@ -487,9 +487,9 @@ requires_manual_review = True  # For critical fields
    CONFIDENCE_LEVELS = {
        "native_pdf_text": 0.95,
        "form_annotations": 0.90,
+       "mistral_ocr": 0.88,
        "gemini_vision": 0.80,
-       "ocr_high_quality": 0.70,
-       "ocr_low_quality": 0.50,
+       "ocr_fallback": 0.65,
        "manual_review": 1.0
    }
    ```

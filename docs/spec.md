@@ -20,8 +20,8 @@ An AI-powered system that automates the extraction of information from medical r
   - pdfforms (widget-based forms)
   - pdfplumber (text extraction with coordinates)
 - **AI/OCR Services**:
-  - Google Gemini API (primary)
-  - Mistral OCR (fallback)
+  - Mistral OCR API (primary) - Dedicated OCR processing
+  - Google Gemini API (fallback) - Vision model backup
   - OpenAI GPT-4 (field mapping)
 - **Deployment**: Render
 - **Storage**: Temporary file system + Redis for caching
@@ -31,7 +31,7 @@ An AI-powered system that automates the extraction of information from medical r
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
 │   Next.js UI    │────▶│  FastAPI Backend │────▶│  AI Services    │
-│    (Vercel)     │     │    (Render)      │     │ (Gemini/OpenAI) │
+│    (Vercel)     │     │    (Render)      │     │ (Mistral/Gemini) │
 └─────────────────┘     └─────────────────┘     └─────────────────┘
                                │
                                ▼
@@ -51,8 +51,8 @@ An AI-powered system that automates the extraction of information from medical r
 1. Upload referral PDF + PA form PDF
 2. For referral packet:
    - Check file size (chunk if > 20MB)
-   - Process pages concurrently with Gemini API
-   - If confidence < threshold, use Mistral OCR
+   - Process pages concurrently with Mistral OCR API
+   - If confidence < threshold, use Gemini Vision
    - Extract all text with coordinates
 3. For PA form:
    - Use pdfforms to detect widget fields
@@ -64,7 +64,7 @@ An AI-powered system that automates the extraction of information from medical r
 ```python
 # AI-powered field matching
 1. Analyze PA form fields
-2. Use GPT-4/Gemini to match:
+2. Use GPT-4/Mistral to match:
    - Patient demographics
    - Clinical information
    - Treatment details
@@ -160,8 +160,8 @@ src/
 5. Implement chunking for large files
 
 ### Days 3-4: AI Integration & Processing
-1. Add Mistral OCR fallback mechanism
-2. Implement GPT-4/Gemini field mapping
+1. Add Gemini Vision fallback mechanism  
+2. Implement GPT-4/Mistral field mapping
 3. Build confidence scoring system
 4. Add concurrent processing for pages
 5. Create mapping rules engine
@@ -227,8 +227,8 @@ src/
 ## Error Handling
 
 ### OCR Failures
-1. Primary: Gemini API extraction
-2. Fallback: Mistral OCR
+1. Primary: Mistral OCR API extraction
+2. Fallback: Gemini Vision API
 3. Final: Mark for manual review
 
 ### Processing Errors
@@ -312,9 +312,9 @@ fastapi==0.104.1
 uvicorn==0.24.0
 pdfforms==1.2.0
 pdfplumber==0.10.3
+mistralai>=1.8.2
 google-generativeai==0.3.0
 openai==1.3.0
-mistralai==0.0.1
 redis==5.0.1
 python-multipart==0.0.6
 aiofiles==23.2.1

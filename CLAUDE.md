@@ -118,7 +118,7 @@ def test_should_extract_patient_name_when_pdf_is_valid():
 ### Task Management
 
 - **Always review CLAUDE.md before starting**
-- **Complete exactly 3 tasks from todo.md at once** (unless specified otherwise)
+- **Complete exactly 1 task from todo.md at once** (unless specified otherwise)
 - **After each file generation:**
   - Update todo.md for the task you completed
   - Update progress_notes.md with what was actually built (max 8 words).

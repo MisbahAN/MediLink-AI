@@ -36,8 +36,8 @@ class Settings(BaseSettings):
     MAX_FILES_PER_REQUEST: int = 10
     
     # AI/ML Configuration
-    GEMINI_API_KEY: Optional[str] = None  # Primary OCR and extraction
-    MISTRAL_API_KEY: Optional[str] = None  # Fallback OCR
+    MISTRAL_API_KEY: Optional[str] = None  # Primary OCR and extraction
+    GEMINI_API_KEY: Optional[str] = None  # Fallback OCR and vision
     OPENAI_API_KEY: Optional[str] = None  # Field mapping only
     
     # AI Model Settings

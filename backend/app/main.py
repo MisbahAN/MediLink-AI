@@ -16,7 +16,8 @@ from pathlib import Path
 # Add the app directory to Python path for imports
 sys.path.append(str(Path(__file__).parent))
 
-from api.routes import upload, health, process, download
+from api.routes import upload, health
+# from api.routes import process, download  # TODO: Uncomment when these modules are implemented
 
 # Configure logging
 logging.basicConfig(
@@ -54,8 +55,8 @@ app.add_middleware(
 # Include API routers
 app.include_router(health.router, prefix="/api", tags=["health"])
 app.include_router(upload.router, prefix="/api", tags=["upload"])
-app.include_router(process.router, prefix="/api", tags=["process"])
-app.include_router(download.router, prefix="/api", tags=["download"])
+# app.include_router(process.router, prefix="/api", tags=["process"])  # TODO: Uncomment when implemented
+# app.include_router(download.router, prefix="/api", tags=["download"])  # TODO: Uncomment when implemented
 
 
 @app.exception_handler(HTTPException)
