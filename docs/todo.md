@@ -9,14 +9,13 @@
   ├── backend/
   │   ├── app/
   │   ├── tests/
-  │   │   └── test_data/     # Move testcases here
+  │   │   └── test_data/    # Move testcases here
   │   └── requirements.txt
   ├── frontend/
   ├── docs/
   │   ├── spec.md           # Move from root
   │   ├── todo.md           # Move from root
-  │   ├── progress_notes.md # Move from root
-  │   └── prompt_plan.md    # Move from root
+  │   └── progress_notes.md # Move from root
   ├── testcases/            # Already exists
   ├── CLAUDE.md             # Already exists
   └── README.md             # Keep in root
@@ -25,7 +24,6 @@
 - [x] Move `spec.md` to `docs/spec.md`
 - [x] Move `todo.md` to `docs/todo.md`
 - [x] Move `progress_notes.md` to `docs/progress_notes.md`
-- [x] Move `prompt_plan.md` to `docs/prompt_plan.md`
 - [x] Create `.gitignore` file in root with Python, Node, .env exclusions
 
 ### Backend Initial Setup
