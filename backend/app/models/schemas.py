@@ -367,3 +367,246 @@ class HealthCheck(BaseModel):
                 }
             }
         }
+
+
+class ConfidenceScore(BaseModel):
+    """Model for confidence scoring with detailed breakdown."""
+    overall_confidence: float = Field(..., ge=0.0, le=1.0, description="Overall confidence score (0.0-1.0)")
+    confidence_level: ConfidenceLevel = Field(..., description="Confidence category")
+    scoring_breakdown: Dict[str, float] = Field(
+        default_factory=dict, 
+        description="Breakdown of confidence factors"
+    )
+    extraction_method: str = Field(..., description="Method used for extraction")
+    validation_checks: Dict[str, bool] = Field(
+        default_factory=dict,
+        description="Results of validation checks"
+    )
+    quality_indicators: Dict[str, Any] = Field(
+        default_factory=dict,
+        description="Quality metrics and indicators"
+    )
+    
+    @field_validator('confidence_level', mode='before')
+    @classmethod
+    def set_confidence_level_from_score(cls, v, info):
+        """Set confidence level based on overall confidence score."""
+        if v is None and hasattr(info, 'data') and 'overall_confidence' in info.data:
+            confidence = info.data['overall_confidence']
+            if confidence >= 0.9:
+                return ConfidenceLevel.HIGH
+            elif confidence >= 0.7:
+                return ConfidenceLevel.MEDIUM
+            else:
+                return ConfidenceLevel.LOW
+        return v
+    
+    class Config:
+        schema_extra = {
+            "example": {
+                "overall_confidence": 0.88,
+                "confidence_level": "medium",
+                "scoring_breakdown": {
+                    "text_quality": 0.92,
+                    "pattern_match": 0.85,
+                    "context_validation": 0.87
+                },
+                "extraction_method": "mistral_ocr",
+                "validation_checks": {
+                    "format_valid": True,
+                    "length_appropriate": True,
+                    "pattern_match": True
+                },
+                "quality_indicators": {
+                    "text_length": 1250,
+                    "character_confidence": 0.91,
+                    "structure_score": 0.84
+                }
+            }
+        }
+
+
+class FieldMapping(BaseModel):
+    """Model for field mapping between extracted data and PA form fields."""
+    source_field: str = Field(..., description="Source field from extracted data")
+    target_field: str = Field(..., description="Target field in PA form")
+    mapped_value: str = Field(..., description="Mapped value after transformation")
+    original_value: Optional[str] = Field(None, description="Original extracted value")
+    confidence_score: ConfidenceScore = Field(..., description="Confidence scoring details")
+    transformation_applied: Optional[str] = Field(None, description="Transformation method applied")
+    validation_status: str = Field(..., description="Validation status (approved/flagged/rejected)")
+    mapping_source: str = Field(..., description="Source of mapping (ai/pattern/manual)")
+    source_page: Optional[int] = Field(None, ge=1, description="Source page number")
+    source_coordinates: Optional[Dict[str, float]] = Field(None, description="Source text coordinates")
+    mapping_notes: Optional[str] = Field(None, description="Additional mapping notes")
+    requires_review: bool = Field(default=False, description="Whether mapping requires manual review")
+    
+    @field_validator('validation_status')
+    @classmethod
+    def validate_status(cls, v):
+        """Validate mapping status values."""
+        valid_statuses = ['approved', 'flagged', 'rejected', 'pending_review']
+        if v not in valid_statuses:
+            raise ValueError(f'Validation status must be one of: {", ".join(valid_statuses)}')
+        return v
+    
+    class Config:
+        schema_extra = {
+            "example": {
+                "source_field": "patient_info.name",
+                "target_field": "patient_name",
+                "mapped_value": "John Smith",
+                "original_value": "Smith, John",
+                "confidence_score": {
+                    "overall_confidence": 0.95,
+                    "confidence_level": "high",
+                    "scoring_breakdown": {
+                        "exact_match": 0.90,
+                        "format_conversion": 0.95,
+                        "context_validation": 1.0
+                    },
+                    "extraction_method": "mistral_ocr",
+                    "validation_checks": {
+                        "format_valid": True,
+                        "length_appropriate": True,
+                        "pattern_match": True
+                    }
+                },
+                "transformation_applied": "name_format_conversion",
+                "validation_status": "approved",
+                "mapping_source": "ai",
+                "source_page": 1,
+                "source_coordinates": {"x": 150.5, "y": 200.3, "width": 120.0, "height": 18.0},
+                "mapping_notes": "Converted from Last, First to First Last format",
+                "requires_review": False
+            }
+        }
+
+
+class ExtractionResult(BaseModel):
+    """Comprehensive model for extraction results with detailed metadata."""
+    session_id: str = Field(..., description="Session identifier")
+    extraction_id: str = Field(..., description="Unique extraction identifier")
+    document_type: str = Field(..., description="Type of document processed")
+    document_path: str = Field(..., description="Path to processed document")
+    extraction_method: str = Field(..., description="Primary extraction method used")
+    fallback_methods: List[str] = Field(default_factory=list, description="Fallback methods attempted")
+    
+    # Extraction results
+    extracted_fields: Dict[str, ExtractedField] = Field(
+        default_factory=dict,
+        description="All extracted fields with metadata"
+    )
+    field_mappings: List[FieldMapping] = Field(
+        default_factory=list,
+        description="Field mappings to target form"
+    )
+    confidence_summary: ConfidenceScore = Field(..., description="Overall extraction confidence")
+    
+    # Processing metadata
+    pages_processed: int = Field(..., ge=1, description="Number of pages processed")
+    processing_time_seconds: float = Field(..., ge=0.0, description="Total processing time")
+    extraction_timestamp: datetime = Field(..., description="Extraction completion timestamp")
+    
+    # Quality metrics
+    quality_metrics: Dict[str, Any] = Field(
+        default_factory=dict,
+        description="Quality assessment metrics"
+    )
+    validation_results: Dict[str, bool] = Field(
+        default_factory=dict,
+        description="Validation check results"
+    )
+    
+    # Error and warning information
+    errors: List[str] = Field(default_factory=list, description="Errors encountered during extraction")
+    warnings: List[str] = Field(default_factory=list, description="Warnings during extraction")
+    
+    # Statistical summary
+    extraction_statistics: Dict[str, Any] = Field(
+        default_factory=dict,
+        description="Extraction statistics and summary"
+    )
+    
+    @field_validator('extraction_statistics', mode='before')
+    @classmethod
+    def calculate_statistics(cls, v, info):
+        """Calculate extraction statistics from extracted fields."""
+        if v is None and hasattr(info, 'data') and 'extracted_fields' in info.data:
+            extracted_fields = info.data['extracted_fields']
+            
+            total_fields = len(extracted_fields)
+            high_confidence = sum(1 for f in extracted_fields.values() 
+                                if f.confidence >= 0.9)
+            medium_confidence = sum(1 for f in extracted_fields.values() 
+                                  if 0.7 <= f.confidence < 0.9)
+            low_confidence = sum(1 for f in extracted_fields.values() 
+                               if f.confidence < 0.7)
+            
+            return {
+                "total_fields_extracted": total_fields,
+                "high_confidence_fields": high_confidence,
+                "medium_confidence_fields": medium_confidence,
+                "low_confidence_fields": low_confidence,
+                "average_confidence": sum(f.confidence for f in extracted_fields.values()) / total_fields if total_fields > 0 else 0.0,
+                "extraction_completeness": (high_confidence + medium_confidence) / total_fields if total_fields > 0 else 0.0
+            }
+        return v or {}
+    
+    class Config:
+        schema_extra = {
+            "example": {
+                "session_id": "pa_session_123",
+                "extraction_id": "ext_456789",
+                "document_type": "medical_referral",
+                "document_path": "/uploads/session_123/referral_packet.pdf",
+                "extraction_method": "mistral_ocr",
+                "fallback_methods": [],
+                "extracted_fields": {
+                    "patient_name": {
+                        "value": "John Smith",
+                        "confidence": 0.95,
+                        "confidence_level": "high",
+                        "source_page": 1,
+                        "extraction_method": "mistral_ocr"
+                    }
+                },
+                "field_mappings": [
+                    {
+                        "source_field": "patient_info.name",
+                        "target_field": "patient_name",
+                        "mapped_value": "John Smith",
+                        "validation_status": "approved",
+                        "mapping_source": "ai"
+                    }
+                ],
+                "confidence_summary": {
+                    "overall_confidence": 0.88,
+                    "confidence_level": "medium",
+                    "extraction_method": "mistral_ocr"
+                },
+                "pages_processed": 15,
+                "processing_time_seconds": 125.4,
+                "extraction_timestamp": "2025-06-11T12:15:30Z",
+                "quality_metrics": {
+                    "text_clarity": 0.85,
+                    "structure_detection": 0.92,
+                    "field_recognition": 0.88
+                },
+                "validation_results": {
+                    "format_validation": True,
+                    "data_integrity": True,
+                    "completeness_check": False
+                },
+                "errors": [],
+                "warnings": ["Low confidence on provider NPI field"],
+                "extraction_statistics": {
+                    "total_fields_extracted": 25,
+                    "high_confidence_fields": 18,
+                    "medium_confidence_fields": 5,
+                    "low_confidence_fields": 2,
+                    "average_confidence": 0.84,
+                    "extraction_completeness": 0.92
+                }
+            }
+        }

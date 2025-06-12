@@ -183,7 +183,7 @@
 
 ### Widget Detection Service
 
-- [ ] Create `backend/app/services/widget_detector.py`:
+- [x] Create `backend/app/services/widget_detector.py`:
   - `WidgetDetector` class
   - `detect_form_fields()` method using pdfforms
   - `extract_field_properties()` method
@@ -199,7 +199,7 @@
 
 ### Processing Pipeline
 
-- [ ] Create `backend/app/services/processing_pipeline.py`:
+- [x] Create `backend/app/services/processing_pipeline.py`:
   - `ProcessingPipeline` class
   - `process_documents()` main method
   - `extract_referral_data()` method
@@ -209,14 +209,14 @@
 
 ### Process Route
 
-- [ ] Create `backend/app/api/routes/process.py`:
+- [x] Create `backend/app/api/routes/process.py`:
   - POST `/api/process/{session_id}` endpoint
   - GET `/api/process/{session_id}/status` endpoint
   - Background task integration
 
 ### Data Extraction Models
 
-- [ ] Update `backend/app/models/schemas.py`:
+- [x] Update `backend/app/models/schemas.py`:
   - Add `FieldMapping` model
   - Add `ConfidenceScore` model
   - Add `ExtractionResult` model
@@ -225,7 +225,7 @@
 
 ### Form Filling Service
 
-- [ ] Create `backend/app/services/form_filler.py`:
+- [x] Create `backend/app/services/form_filler.py`:
   - `FormFiller` class
   - `fill_widget_form()` method
   - `validate_field_value()` method
@@ -233,7 +233,7 @@
 
 ### Report Generator
 
-- [ ] Create `backend/app/services/report_generator.py`:
+- [x] Create `backend/app/services/report_generator.py`:
   - `ReportGenerator` class
   - `generate_missing_fields_report()` method
   - `format_as_markdown()` method
@@ -241,7 +241,7 @@
 
 ### Redis Cache Service
 
-- [ ] Create `backend/app/services/cache.py`:
+- [x] Create `backend/app/services/cache.py`:
   - `CacheService` class
   - `connect_redis()` method
   - `cache_result()` method
@@ -250,28 +250,28 @@
 
 ### Download Routes
 
-- [ ] Create `backend/app/api/routes/download.py`:
+- [x] Create `backend/app/api/routes/download.py`:
   - GET `/api/download/{session_id}/filled` endpoint
   - GET `/api/download/{session_id}/report` endpoint
   - File streaming implementation
 
 ### Middleware Setup
 
-- [ ] Create `backend/app/core/middleware.py`:
+- [x] Create `backend/app/core/middleware.py`:
   - Global exception handler
   - Request validation middleware
   - Logging middleware
 
 ### Logging Configuration
 
-- [ ] Create `backend/app/core/logging.py`:
+- [x] Create `backend/app/core/logging.py`:
   - Configure structured logging
   - Set up log formatters
   - Request ID tracking
 
 ### Error Handlers
 
-- [ ] Update `backend/app/main.py`:
+- [x] Update `backend/app/main.py`:
   - Add custom exception handlers
   - Configure error responses
 

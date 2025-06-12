@@ -47,13 +47,13 @@ class Settings(BaseSettings):
     MAX_TOKENS: int = 4000
     
     
+    # Logging Configuration
+    LOG_LEVEL: str = "INFO"
+    LOG_FILE: str = "logs/app.log"
+    
     # Processing Configuration
     PROCESSING_TIMEOUT_SECONDS: int = 300
     CONCURRENT_PROCESSING_LIMIT: int = 5
-    
-    # Logging Configuration
-    LOG_LEVEL: str = "INFO"
-    LOG_FORMAT: str = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     
     class Config:
         env_file = ".env"
