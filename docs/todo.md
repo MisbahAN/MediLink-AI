@@ -3,6 +3,7 @@
 ## Day 1-2: Backend Core Setup
 
 ### Project Structure Setup
+
 - [x] Create project structure:
   ```
   MediLink-AI/
@@ -27,6 +28,7 @@
 - [x] Create `.gitignore` file in root with Python, Node, .env exclusions
 
 ### Backend Initial Setup
+
 - [x] Create `backend/requirements.txt`:
   ```
   fastapi>=0.104.1
@@ -58,8 +60,9 @@
   ```
 
 ### FastAPI Base Files
+
 - [x] Create `backend/app/__init__.py` (empty file)
-- [ ] Create `backend/app/main.py`:
+- [x] Create `backend/app/main.py`:
   - FastAPI app initialization
   - CORS middleware setup
   - Include routers
@@ -68,16 +71,18 @@
 - [x] Create `backend/app/api/routes/__init__.py`
 
 ### Core Configuration Files
+
 - [x] Create `backend/app/core/__init__.py`
-- [ ] Create `backend/app/core/config.py`:
+- [x] Create `backend/app/core/config.py`:
   - Settings class with all env variables
   - File upload settings
   - API configuration
-- [ ] Create `backend/app/core/deps.py`:
+- [x] Create `backend/app/core/deps.py`:
   - Common dependencies
   - Settings dependency
 
 ### Model/Schema Files
+
 - [x] Create `backend/app/models/__init__.py`
 - [ ] Create `backend/app/models/schemas.py`:
   - `UploadResponse` model
@@ -88,10 +93,12 @@
   - `ProcessingResult` model
 
 ### Service Layer Structure
+
 - [x] Create `backend/app/services/__init__.py`
 - [x] Create `backend/app/utils/__init__.py`
 
 ### Upload Route Implementation
+
 - [ ] Create `backend/app/api/routes/upload.py`:
   - POST `/api/upload` endpoint
   - File validation logic
@@ -99,6 +106,7 @@
   - File storage handling
 
 ### Storage Service Implementation
+
 - [ ] Create `backend/app/services/storage.py`:
   - `FileStorage` class
   - `save_file()` method
@@ -107,6 +115,7 @@
   - `create_session_directory()` method
 
 ### Basic PDF Extractor
+
 - [ ] Create `backend/app/services/pdf_extractor.py`:
   - `PDFExtractor` base class
   - `extract_text_from_pdf()` method
@@ -114,6 +123,7 @@
   - `chunk_pdf()` method for large files
 
 ### Gemini Service Setup
+
 - [ ] Create `backend/app/services/gemini_service.py`:
   - `GeminiService` class
   - `initialize_client()` method
@@ -122,11 +132,13 @@
   - Retry logic implementation
 
 ### Health Check Route
+
 - [ ] Create `backend/app/api/routes/health.py`:
   - GET `/api/health` endpoint
   - Service connectivity checks
 
 ### File Handler Utilities
+
 - [ ] Create `backend/app/utils/file_handler.py`:
   - `validate_pdf()` function
   - `get_file_size()` function
@@ -135,6 +147,7 @@
 ## Day 3-4: AI Integration & Processing
 
 ### Mistral OCR Service
+
 - [ ] Create `backend/app/services/mistral_service.py`:
   - `MistralService` class
   - `extract_with_ocr()` method
@@ -142,6 +155,7 @@
   - Integration with extraction pipeline
 
 ### OpenAI Service
+
 - [ ] Create `backend/app/services/openai_service.py`:
   - `OpenAIService` class
   - `create_field_mapping_prompt()` method
@@ -149,6 +163,7 @@
   - Response parsing logic
 
 ### Field Mapping Engine
+
 - [ ] Create `backend/app/services/field_mapper.py`:
   - `FieldMapper` class
   - `normalize_field_name()` method
@@ -158,6 +173,7 @@
   - `calculate_confidence_score()` method
 
 ### Widget Detection Service
+
 - [ ] Create `backend/app/services/widget_detector.py`:
   - `WidgetDetector` class
   - `detect_form_fields()` method using pdfforms
@@ -165,6 +181,7 @@
   - `create_field_template()` method
 
 ### Concurrent Processing
+
 - [ ] Create `backend/app/services/concurrent_processor.py`:
   - `AsyncProcessor` class
   - `process_pages_concurrently()` method
@@ -172,6 +189,7 @@
   - Progress tracking implementation
 
 ### Processing Pipeline
+
 - [ ] Create `backend/app/services/processing_pipeline.py`:
   - `ProcessingPipeline` class
   - `process_documents()` main method
@@ -181,12 +199,14 @@
   - `apply_confidence_thresholds()` method
 
 ### Process Route
+
 - [ ] Create `backend/app/api/routes/process.py`:
   - POST `/api/process/{session_id}` endpoint
   - GET `/api/process/{session_id}/status` endpoint
   - Background task integration
 
 ### Data Extraction Models
+
 - [ ] Update `backend/app/models/schemas.py`:
   - Add `FieldMapping` model
   - Add `ConfidenceScore` model
@@ -195,6 +215,7 @@
 ## Day 5: Backend Finalization
 
 ### Form Filling Service
+
 - [ ] Create `backend/app/services/form_filler.py`:
   - `FormFiller` class
   - `fill_widget_form()` method
@@ -202,6 +223,7 @@
   - `save_filled_pdf()` method
 
 ### Report Generator
+
 - [ ] Create `backend/app/services/report_generator.py`:
   - `ReportGenerator` class
   - `generate_missing_fields_report()` method
@@ -209,6 +231,7 @@
   - `include_confidence_details()` method
 
 ### Redis Cache Service
+
 - [ ] Create `backend/app/services/cache.py`:
   - `CacheService` class
   - `connect_redis()` method
@@ -217,29 +240,34 @@
   - `invalidate_cache()` method
 
 ### Download Routes
+
 - [ ] Create `backend/app/api/routes/download.py`:
   - GET `/api/download/{session_id}/filled` endpoint
   - GET `/api/download/{session_id}/report` endpoint
   - File streaming implementation
 
 ### Middleware Setup
+
 - [ ] Create `backend/app/core/middleware.py`:
   - Global exception handler
   - Request validation middleware
   - Logging middleware
 
 ### Logging Configuration
+
 - [ ] Create `backend/app/core/logging.py`:
   - Configure structured logging
   - Set up log formatters
   - Request ID tracking
 
 ### Error Handlers
+
 - [ ] Update `backend/app/main.py`:
   - Add custom exception handlers
   - Configure error responses
 
 ### Backend Tests
+
 - [x] Create `backend/tests/__init__.py`
 - [ ] Create `backend/tests/conftest.py` with fixtures
 - [ ] Create `backend/tests/test_pdf_extraction.py`
@@ -249,6 +277,7 @@
 ## Day 6-7: Frontend Development
 
 ### Next.js Project Setup
+
 - [ ] Navigate to frontend folder: `cd frontend`
 - [ ] Run: `npx create-next-app@latest . --typescript --tailwind --app`
 - [ ] Update `frontend/package.json` dependencies:
@@ -273,12 +302,14 @@
   ```
 
 ### Frontend Structure Setup
+
 - [ ] Create `frontend/src/lib/` directory
 - [ ] Create `frontend/src/components/` directory
 - [ ] Create `frontend/src/hooks/` directory
 - [ ] Create `frontend/src/types/` directory
 
 ### Type Definitions
+
 - [ ] Create `frontend/src/types/index.ts`:
   - `UploadResponse` interface
   - `ProcessingStatus` interface
@@ -287,6 +318,7 @@
   - `APIError` interface
 
 ### API Client
+
 - [ ] Create `frontend/src/lib/api-client.ts`:
   - Axios instance configuration
   - `uploadFiles()` function
@@ -296,12 +328,14 @@
   - Error handling wrapper
 
 ### Utility Functions
+
 - [ ] Create `frontend/src/lib/utils.ts`:
   - `cn()` function for className merging
   - `formatFileSize()` function
   - `getFileIcon()` function
 
 ### File Upload Component
+
 - [ ] Create `frontend/src/components/FileUpload.tsx`:
   - Dropzone implementation
   - File validation
@@ -310,6 +344,7 @@
   - File preview cards
 
 ### Processing Status Component
+
 - [ ] Create `frontend/src/components/ProcessingStatus.tsx`:
   - Progress stepper UI
   - Stage indicators
@@ -317,6 +352,7 @@
   - Error state handling
 
 ### PDF Preview Component
+
 - [ ] Create `frontend/src/components/PDFPreview.tsx`:
   - PDF.js integration
   - Page navigation
@@ -324,6 +360,7 @@
   - Loading states
 
 ### Results Display Component
+
 - [ ] Create `frontend/src/components/ResultsDisplay.tsx`:
   - Summary statistics
   - Confidence metrics display
@@ -331,12 +368,14 @@
   - Download buttons
 
 ### UI Components
+
 - [ ] Create `frontend/src/components/ui/button.tsx`
 - [ ] Create `frontend/src/components/ui/card.tsx`
 - [ ] Create `frontend/src/components/ui/progress.tsx`
 - [ ] Create `frontend/src/components/ui/alert.tsx`
 
 ### Custom Hooks
+
 - [ ] Create `frontend/src/hooks/useFileUpload.ts`:
   - File state management
   - Upload logic
@@ -346,24 +385,28 @@
   - Status updates
 
 ### Main Upload Page
+
 - [ ] Update `frontend/src/app/page.tsx`:
   - Landing page layout
   - FileUpload integration
   - Navigation to processing
 
 ### Processing Page
+
 - [ ] Create `frontend/src/app/process/[id]/page.tsx`:
   - Session ID handling
   - Status polling
   - Results display
 
 ### Layout Updates
+
 - [ ] Update `frontend/src/app/layout.tsx`:
   - Add metadata
   - Configure fonts
   - Set up providers
 
 ### Global Styles
+
 - [ ] Update `frontend/src/app/globals.css`:
   - Tailwind directives
   - Custom animations
@@ -372,6 +415,7 @@
 ## Day 8-9: Integration & Testing
 
 ### Integration Testing
+
 - [ ] Test complete upload flow with test PDFs
 - [ ] Verify processing status updates work
 - [ ] Test download functionality
@@ -379,12 +423,14 @@
 - [ ] Validate CORS configuration
 
 ### Performance Testing
+
 - [ ] Test with large PDF files (30+ pages)
 - [ ] Measure processing times
 - [ ] Check memory usage
 - [ ] Test concurrent requests
 
 ### Create Golden Outputs
+
 - [ ] Process `test_1_referral_package.pdf` + `test_1_PA.pdf`
 - [ ] Save output as `test_1_filled.pdf` and `test_1_report.md`
 - [ ] Process test case 2
@@ -392,12 +438,14 @@
 - [ ] Document expected vs actual results
 
 ### Bug Fixes
+
 - [ ] Fix identified issues from testing
 - [ ] Improve error messages
 - [ ] Optimize slow operations
 - [ ] Add missing validations
 
 ### Frontend Polish
+
 - [ ] Add loading skeletons
 - [ ] Improve responsive design
 - [ ] Add tooltips for complex fields
@@ -406,6 +454,7 @@
 ## Day 10: Deployment & Documentation
 
 ### Backend Deployment Prep
+
 - [ ] Create `backend/render.yaml`:
   ```yaml
   services:
@@ -419,6 +468,7 @@
 - [ ] Add `backend/Procfile` if needed
 
 ### Deploy Backend to Render
+
 - [ ] Create Render account and project
 - [ ] Connect GitHub repository
 - [ ] Configure environment variables
@@ -426,11 +476,13 @@
 - [ ] Note production URL
 
 ### Frontend Deployment Prep
+
 - [ ] Update `frontend/.env.local` with production API URL
 - [ ] Build and test locally: `npm run build`
 - [ ] Fix any build errors
 
 ### Deploy Frontend to Vercel
+
 - [ ] Connect GitHub repository to Vercel
 - [ ] Configure build settings
 - [ ] Set environment variables
@@ -438,6 +490,7 @@
 - [ ] Configure domain if needed
 
 ### Update Main README.md
+
 - [ ] Add project description
 - [ ] Include architecture overview
 - [ ] Add installation instructions:
@@ -449,6 +502,7 @@
 - [ ] Include screenshots
 
 ### Create Additional Documentation
+
 - [ ] Create `docs/API.md` with endpoint details
 - [ ] Create `docs/DEPLOYMENT.md` with deployment guide
 - [ ] Create `docs/TESTING.md` with test instructions
@@ -456,6 +510,7 @@
 - [ ] Add sample outputs to `output_examples/`
 
 ### Final Production Testing
+
 - [ ] Test complete flow on production
 - [ ] Verify all endpoints work
 - [ ] Check performance
@@ -463,6 +518,7 @@
 - [ ] Validate output quality
 
 ### Code Cleanup
+
 - [ ] Remove all console.log statements
 - [ ] Remove commented code
 - [ ] Ensure no hardcoded values
@@ -470,6 +526,7 @@
 - [ ] Run linters
 
 ### GitHub Submission
+
 - [ ] Ensure all files are committed
 - [ ] Verify `.gitignore` excludes sensitive files
 - [ ] Check branch name: `automation-pa-filling-[your-name]`
