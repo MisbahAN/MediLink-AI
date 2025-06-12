@@ -3,7 +3,7 @@
 ## Day 1-2: Backend Core Setup
 
 ### Project Structure Setup
-- [ ] Create project structure:
+- [x] Create project structure:
   ```
   MediLink-AI/
   ├── backend/
@@ -21,35 +21,35 @@
   ├── CLAUDE.md             # Already exists
   └── README.md             # Keep in root
   ```
-- [ ] Move `testcases/` folder to `backend/tests/test_data/`
-- [ ] Move `spec.md` to `docs/spec.md`
-- [ ] Move `todo.md` to `docs/todo.md`
-- [ ] Move `progress_notes.md` to `docs/progress_notes.md`
-- [ ] Move `prompt_plan.md` to `docs/prompt_plan.md`
-- [ ] Create `.gitignore` file in root with Python, Node, .env exclusions
+- [x] Move `testcases/` folder to `backend/tests/test_data/`
+- [x] Move `spec.md` to `docs/spec.md`
+- [x] Move `todo.md` to `docs/todo.md`
+- [x] Move `progress_notes.md` to `docs/progress_notes.md`
+- [x] Move `prompt_plan.md` to `docs/prompt_plan.md`
+- [x] Create `.gitignore` file in root with Python, Node, .env exclusions
 
 ### Backend Initial Setup
-- [ ] Create `backend/requirements.txt`:
+- [x] Create `backend/requirements.txt`:
   ```
-  fastapi==0.104.1
-  uvicorn==0.24.0
-  pdfforms==1.2.0
-  pdfplumber==0.10.3
-  google-generativeai==0.3.0
-  openai==1.3.0
-  mistralai==0.0.1
-  redis==5.0.1
-  python-multipart==0.0.6
-  aiofiles==23.2.1
+  fastapi>=0.104.1
+  uvicorn>=0.24.0
+  pdfforms>=1.2.0
+  pdfplumber>=0.10.3
+  google-generativeai>=0.3.0
+  openai>=1.3.0
+  mistralai>=1.8.2
+  redis>=5.0.1
+  python-multipart>=0.0.6
+  aiofiles>=23.2.1
   python-jose[cryptography]
   passlib[bcrypt]
-  pytest==7.4.3
-  httpx==0.25.2
+  pytest>=7.4.3
+  httpx>=0.25.2
   ```
-- [ ] Create virtual environment in backend: `cd backend && python -m venv venv`
-- [ ] Activate venv and install dependencies: `pip install -r requirements.txt`
-- [ ] Create `backend/.env` file for API keys
-- [ ] Create `backend/.env.example`:
+- [x] Create virtual environment in backend: `cd backend && python -m venv venv`
+- [x] Activate venv and install dependencies: `pip install -r requirements.txt`
+- [x] Create `backend/.env` file for API keys
+- [x] Create `backend/.env.example`:
   ```
   GEMINI_API_KEY=your_key_here
   OPENAI_API_KEY=your_key_here
@@ -60,17 +60,17 @@
   ```
 
 ### FastAPI Base Files
-- [ ] Create `backend/app/__init__.py` (empty file)
+- [x] Create `backend/app/__init__.py` (empty file)
 - [ ] Create `backend/app/main.py`:
   - FastAPI app initialization
   - CORS middleware setup
   - Include routers
   - Exception handlers
-- [ ] Create `backend/app/api/__init__.py`
-- [ ] Create `backend/app/api/routes/__init__.py`
+- [x] Create `backend/app/api/__init__.py`
+- [x] Create `backend/app/api/routes/__init__.py`
 
 ### Core Configuration Files
-- [ ] Create `backend/app/core/__init__.py`
+- [x] Create `backend/app/core/__init__.py`
 - [ ] Create `backend/app/core/config.py`:
   - Settings class with all env variables
   - File upload settings
@@ -80,7 +80,7 @@
   - Settings dependency
 
 ### Model/Schema Files
-- [ ] Create `backend/app/models/__init__.py`
+- [x] Create `backend/app/models/__init__.py`
 - [ ] Create `backend/app/models/schemas.py`:
   - `UploadResponse` model
   - `ProcessingStatus` enum and model
@@ -90,8 +90,8 @@
   - `ProcessingResult` model
 
 ### Service Layer Structure
-- [ ] Create `backend/app/services/__init__.py`
-- [ ] Create `backend/app/utils/__init__.py`
+- [x] Create `backend/app/services/__init__.py`
+- [x] Create `backend/app/utils/__init__.py`
 
 ### Upload Route Implementation
 - [ ] Create `backend/app/api/routes/upload.py`:
@@ -242,7 +242,7 @@
   - Configure error responses
 
 ### Backend Tests
-- [ ] Create `backend/tests/__init__.py`
+- [x] Create `backend/tests/__init__.py`
 - [ ] Create `backend/tests/conftest.py` with fixtures
 - [ ] Create `backend/tests/test_pdf_extraction.py`
 - [ ] Create `backend/tests/test_field_mapping.py`
