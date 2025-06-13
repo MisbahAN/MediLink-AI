@@ -12,20 +12,20 @@ from typing import Dict, Any
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import JSONResponse
 
-from ...core.config import get_settings
-from ...core.deps import get_settings as get_settings_dep
-from ...models.schemas import HealthCheck
-from ...services.storage import get_file_storage
-from ...services.pdf_extractor import get_pdf_extractor
-from ...services.mistral_service import get_mistral_service
-from ...services.gemini_service_fallback import get_gemini_service
+from core.deps import get_current_settings
+from core.config import Settings
+from models.schemas import HealthCheck
+from services.storage import get_file_storage
+from services.pdf_extractor import get_pdf_extractor
+from services.mistral_service import get_mistral_service
+from services.gemini_service_fallback import get_gemini_service
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
 @router.get("/health", response_model=HealthCheck)
-async def health_check(settings=Depends(get_settings_dep)) -> HealthCheck:
+async def health_check(settings: Settings = Depends(get_current_settings)) -> HealthCheck:
     """
     Comprehensive health check endpoint.
     
@@ -156,7 +156,7 @@ async def gemini_health_check() -> Dict[str, Any]:
 
 
 @router.get("/health/config")
-async def config_health_check(settings=Depends(get_settings_dep)) -> Dict[str, Any]:
+async def config_health_check(settings: Settings = Depends(get_current_settings)) -> Dict[str, Any]:
     """
     Configuration validation health check.
     

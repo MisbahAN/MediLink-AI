@@ -7,10 +7,11 @@ import os
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
 from fastapi.responses import JSONResponse
 
-from app.core.config import Settings, get_settings
-from app.models.schemas import UploadResponse
-from app.utils.file_handler import validate_pdf, get_file_size, generate_session_id
-from app.services.storage import FileStorage
+from core.deps import get_current_settings
+from core.config import Settings
+from models.schemas import UploadResponse
+from utils.file_handler import validate_pdf, get_file_size, generate_session_id
+from services.storage import FileStorage
 
 router = APIRouter()
 
@@ -18,7 +19,7 @@ router = APIRouter()
 @router.post("/upload", response_model=UploadResponse)
 async def upload_files(
     files: List[UploadFile] = File(...),
-    settings: Settings = Depends(get_settings)
+    settings: Settings = Depends(get_current_settings)
 ) -> UploadResponse:
     """
     Upload PA form and referral packet files for processing.
@@ -141,7 +142,7 @@ async def upload_files(
 @router.get("/upload/status/{session_id}")
 async def get_upload_status(
     session_id: str,
-    settings: Settings = Depends(get_settings)
+    settings: Settings = Depends(get_current_settings)
 ) -> JSONResponse:
     """
     Get upload status and file information for a session.

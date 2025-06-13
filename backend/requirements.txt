@@ -1,5 +1,6 @@
 fastapi>=0.104.1
 uvicorn>=0.24.0
+pydantic-settings>=2.0.0
 pdfforms>=1.2.0
 pdfplumber>=0.10.3
 google-generativeai>=0.3.0
@@ -8,6 +9,7 @@ mistralai>=1.8.2
 redis>=5.0.1
 python-multipart>=0.0.6
 aiofiles>=23.2.1
+python-magic>=0.4.27
 python-jose[cryptography]
 passlib[bcrypt]
 pytest>=7.4.3

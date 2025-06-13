@@ -13,11 +13,11 @@ from typing import Dict, List, Optional, Any, Tuple, Union
 from datetime import datetime, timezone
 from enum import Enum
 
-from ..models.schemas import (
+from models.schemas import (
     ProcessingStatusEnum, ExtractedData, PAFormField, MissingField, 
     ProcessingResult, ConfidenceLevel
 )
-from ..core.config import get_settings
+from core.config import get_settings
 from .mistral_service import get_mistral_service
 from .gemini_service_fallback import get_gemini_service
 from .openai_service import get_openai_service

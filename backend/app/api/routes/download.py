@@ -15,10 +15,11 @@ from fastapi import APIRouter, HTTPException, Depends, Response
 from fastapi.responses import StreamingResponse, FileResponse
 from starlette.background import BackgroundTask
 
-from ...core.deps import get_settings
-from ...services.storage import get_file_storage
-from ...services.cache import get_cache_service
-from ...utils.file_handler import validate_session_id, get_file_size
+from core.deps import get_current_settings
+from core.config import Settings
+from services.storage import get_file_storage
+from services.cache import get_cache_service
+from utils.file_handler import validate_session_id, get_file_size
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/api/download", tags=["download"])
@@ -27,7 +28,7 @@ router = APIRouter(prefix="/api/download", tags=["download"])
 @router.get("/{session_id}/filled")
 async def download_filled_form(
     session_id: str,
-    settings=Depends(get_settings),
+    settings: Settings = Depends(get_current_settings),
     file_storage=Depends(get_file_storage),
     cache_service=Depends(get_cache_service)
 ):
@@ -112,7 +113,7 @@ async def download_filled_form(
 async def download_missing_fields_report(
     session_id: str,
     format: str = "markdown",
-    settings=Depends(get_settings),
+    settings: Settings = Depends(get_current_settings),
     file_storage=Depends(get_file_storage),
     cache_service=Depends(get_cache_service)
 ):
@@ -210,7 +211,7 @@ async def download_missing_fields_report(
 @router.get("/{session_id}/status")
 async def get_download_status(
     session_id: str,
-    settings=Depends(get_settings),
+    settings: Settings = Depends(get_current_settings),
     file_storage=Depends(get_file_storage),
     cache_service=Depends(get_cache_service)
 ):

@@ -15,13 +15,14 @@ from datetime import datetime, timezone
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks, status
 from fastapi.responses import JSONResponse
 
-from ...core.config import Settings, get_settings
-from ...models.schemas import (
+from core.config import Settings
+from core.deps import get_current_settings
+from models.schemas import (
     ProcessingStatus, ProcessingResult, ProcessingStatusEnum, ErrorResponse
 )
-from ...services.processing_pipeline import get_processing_pipeline
-from ...services.storage import get_file_storage
-from ...utils.file_handler import validate_pdf
+from services.processing_pipeline import get_processing_pipeline
+from services.storage import get_file_storage
+from utils.file_handler import validate_pdf
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -127,7 +128,7 @@ async def process_documents_background(
 async def start_processing(
     session_id: str,
     background_tasks: BackgroundTasks,
-    settings: Settings = Depends(get_settings)
+    settings: Settings = Depends(get_current_settings)
 ) -> JSONResponse:
     """
     Start document processing for uploaded files.
@@ -238,7 +239,7 @@ async def start_processing(
 @router.get("/process/{session_id}/status", response_model=ProcessingStatus)
 async def get_processing_status(
     session_id: str,
-    settings: Settings = Depends(get_settings)
+    settings: Settings = Depends(get_current_settings)
 ) -> ProcessingStatus:
     """
     Get current processing status for a session.
@@ -305,7 +306,7 @@ async def get_processing_status(
 @router.get("/process/{session_id}/result")
 async def get_processing_result(
     session_id: str,
-    settings: Settings = Depends(get_settings)
+    settings: Settings = Depends(get_current_settings)
 ) -> JSONResponse:
     """
     Get the final processing result for a completed session.
@@ -409,7 +410,7 @@ async def get_processing_result(
 @router.delete("/process/{session_id}")
 async def cancel_processing(
     session_id: str,
-    settings: Settings = Depends(get_settings)
+    settings: Settings = Depends(get_current_settings)
 ) -> JSONResponse:
     """
     Cancel ongoing processing for a session.
@@ -521,7 +522,7 @@ async def _get_session_files(session_id: str, file_storage) -> Optional[Dict[str
 
 @router.get("/process/sessions/active")
 async def get_active_sessions(
-    settings: Settings = Depends(get_settings)
+    settings: Settings = Depends(get_current_settings)
 ) -> JSONResponse:
     """
     Get list of currently active processing sessions.

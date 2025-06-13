@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Dict, Any, Optional, Union, Tuple
 from fastapi import UploadFile, HTTPException
 
-from ..core.config import get_settings
+from core.config import get_settings
 
 logger = logging.getLogger(__name__)
 settings = get_settings()
@@ -487,6 +487,33 @@ def format_file_size(size_bytes: int) -> str:
         i += 1
     
     return f"{size:.1f} {size_names[i]}"
+
+
+def validate_session_id(session_id: str) -> bool:
+    """
+    Validate session ID format and security.
+    
+    Args:
+        session_id: Session identifier to validate
+        
+    Returns:
+        True if valid, False otherwise
+    """
+    import re
+    
+    # Basic format validation (alphanumeric, hyphens, underscores)
+    if not re.match(r'^[a-zA-Z0-9_-]+$', session_id):
+        return False
+    
+    # Length validation (between 8 and 50 characters)
+    if len(session_id) < 8 or len(session_id) > 50:
+        return False
+    
+    # Security: prevent directory traversal attempts
+    if '..' in session_id or '/' in session_id or '\\' in session_id:
+        return False
+    
+    return True
 
 
 def validate_file_type_by_extension(filename: str, allowed_extensions: list = None) -> bool:

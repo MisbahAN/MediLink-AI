@@ -12,11 +12,11 @@ from pathlib import Path
 from typing import Dict, List, Optional, Any, Union
 from enum import Enum
 
-from ..models.schemas import (
+from models.schemas import (
     FieldMapping, ConfidenceLevel, FieldType, 
     ProcessingResult, MissingField
 )
-from ..core.config import get_settings
+from core.config import get_settings
 
 logger = logging.getLogger(__name__)
 settings = get_settings()

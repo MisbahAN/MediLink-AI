@@ -22,8 +22,8 @@ except ImportError:
     ConnectionError = Exception
     TimeoutError = Exception
 
-from ..models.schemas import ProcessingResult, FieldMapping, ConfidenceScore
-from ..core.config import get_settings
+from app.models.schemas import ProcessingResult, FieldMapping, ConfidenceScore
+from app.core.config import get_settings
 
 logger = logging.getLogger(__name__)
 settings = get_settings()

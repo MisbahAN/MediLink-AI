@@ -20,9 +20,11 @@ try:
     from google.generativeai.types import HarmCategory, HarmBlockThreshold
 except ImportError:
     genai = None
+    HarmCategory = None
+    HarmBlockThreshold = None
 
-from ..models.schemas import ExtractedField, ConfidenceLevel, PatientInfo, ClinicalData
-from ..core.config import get_settings
+from models.schemas import ExtractedField, ConfidenceLevel, PatientInfo, ClinicalData
+from core.config import get_settings
 
 logger = logging.getLogger(__name__)
 settings = get_settings()
@@ -58,12 +60,15 @@ class GeminiService:
         }
         
         # Safety settings for medical document processing
-        self.safety_settings = {
-            HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
-            HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
-            HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
-            HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
-        }
+        if HarmCategory and HarmBlockThreshold:
+            self.safety_settings = {
+                HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+                HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+                HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+                HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
+            }
+        else:
+            self.safety_settings = {}
         
         logger.info("Gemini service initialized as FALLBACK extraction method")
     

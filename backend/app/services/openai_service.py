@@ -19,8 +19,8 @@ except ImportError:
     AsyncOpenAI = None
     openai = None
 
-from ..models.schemas import ExtractedField, ConfidenceLevel, PatientInfo, ClinicalData
-from ..core.config import get_settings
+from models.schemas import ExtractedField, ConfidenceLevel, PatientInfo, ClinicalData
+from core.config import get_settings
 
 logger = logging.getLogger(__name__)
 settings = get_settings()
@@ -107,14 +107,17 @@ class OpenAIService:
         Returns:
             Formatted prompt for GPT-4 analysis
         """
+        referral_data_str = json.dumps(referral_data, indent=2)
+        pa_form_fields_str = json.dumps(pa_form_fields, indent=2)
+        
         prompt = f"""
 You are a medical document processing expert tasked with mapping extracted referral data to Prior Authorization (PA) form fields.
 
 EXTRACTED REFERRAL DATA:
-{json.dumps(referral_data, indent=2)}
+{referral_data_str}
 
 PA FORM FIELDS TO FILL:
-{json.dumps(pa_form_fields, indent=2)}
+{pa_form_fields_str}
 
 TASK:
 Map the referral data to the appropriate PA form fields. For each PA form field:
@@ -140,26 +143,26 @@ FIELD MAPPING RULES:
 - Diagnoses: Include ICD codes when present
 
 RESPONSE FORMAT (JSON):
-{
-  "field_mappings": {
-    "pa_field_name": {
+{{
+  "field_mappings": {{
+    "pa_field_name": {{
       "mapped_value": "extracted and formatted value",
       "confidence": 0.85,
       "source_field": "referral.patient_info.name",
       "transformation": "converted Last, First to First Last",
       "notes": "any relevant observations"
-    }
-  },
+    }}
+  }},
   "missing_fields": [
-    {
+    {{
       "field_name": "provider_npi",
       "priority": "critical|important|optional",
       "reason": "not found in referral data"
-    }
+    }}
   ],
   "overall_confidence": 0.78,
   "processing_notes": "summary of mapping quality and concerns"
-}
+}}
 
 Focus on accuracy over completeness. Mark fields as missing rather than making poor guesses.
 """

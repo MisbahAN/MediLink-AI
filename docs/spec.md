@@ -124,12 +124,13 @@ An AI-powered system that automates the extraction of information from medical r
 
 ```python
 # FastAPI endpoints
-POST   /api/upload          # Upload referral + PA form
-GET    /api/process/{id}    # Get processing status
-GET    /api/download/{id}   # Download filled form + report
-POST   /api/extract         # Extract data from single document
-POST   /api/map-fields      # Map extracted data to form fields
-GET    /api/health          # Health check
+POST   /api/upload                    # Upload referral + PA form
+POST   /api/process/{session_id}      # Start processing documents
+GET    /api/process/{session_id}/status # Get processing status
+GET    /api/download/{session_id}/filled # Download filled PA form
+GET    /api/download/{session_id}/report # Download missing fields report
+GET    /api/health                    # Health check
+GET    /api/health/detailed           # Detailed health check
 ```
 
 ### 4. Frontend Components
@@ -154,14 +155,14 @@ src/
 
 ### Days 1-2: Backend Core Setup
 1. Set up FastAPI project structure
-2. Implement PDF extraction with Gemini API
+2. Implement PDF extraction with Mistral OCR API (primary)
 3. Create pdfforms integration for widget detection
 4. Build basic file upload/storage system
 5. Implement chunking for large files
 
 ### Days 3-4: AI Integration & Processing
-1. Add Gemini Vision fallback mechanism  
-2. Implement GPT-4/Mistral field mapping
+1. Add Gemini Vision fallback mechanism for OCR failures
+2. Implement GPT-4 field mapping and OpenAI service
 3. Build confidence scoring system
 4. Add concurrent processing for pages
 5. Create mapping rules engine
