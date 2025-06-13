@@ -12,7 +12,8 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Any, Optional, Union, Tuple
-from fastapi import UploadFile, HTTPException
+from fastapi import HTTPException
+from starlette.datastructures import UploadFile
 
 from core.config import get_settings
 

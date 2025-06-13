@@ -17,26 +17,27 @@ class TestUploadEndpoints:
 
     def test_should_upload_valid_pdf_files(self, test_client, sample_pdf_bytes):
         """Test uploading valid PDF files."""
-        files = {
-            "referral_file": ("test_referral.pdf", BytesIO(sample_pdf_bytes), "application/pdf"),
-            "pa_form_file": ("test_pa_form.pdf", BytesIO(sample_pdf_bytes), "application/pdf")
-        }
+        files = [
+            ("files", ("test_referral.pdf", BytesIO(sample_pdf_bytes), "application/pdf")),
+            ("files", ("test_pa_form.pdf", BytesIO(sample_pdf_bytes), "application/pdf"))
+        ]
         
         response = test_client.post("/api/upload", files=files)
         
         assert response.status_code == 200
         data = response.json()
         assert "session_id" in data
-        assert "referral_file" in data
-        assert "pa_form_file" in data
-        assert data["status"] == "uploaded"
+        assert "files_received" in data
+        assert len(data["files_received"]) == 2
+        assert "message" in data
+        assert "Files uploaded successfully" in data["message"]
 
     def test_should_reject_non_pdf_files(self, test_client):
         """Test rejection of non-PDF files."""
-        files = {
-            "referral_file": ("test.txt", BytesIO(b"not a pdf"), "text/plain"),
-            "pa_form_file": ("test_pa_form.pdf", BytesIO(b"%PDF-1.4"), "application/pdf")
-        }
+        files = [
+            ("files", ("test.txt", BytesIO(b"not a pdf"), "text/plain")),
+            ("files", ("test_pa_form.pdf", BytesIO(b"%PDF-1.4"), "application/pdf"))
+        ]
         
         response = test_client.post("/api/upload", files=files)
         
@@ -49,10 +50,10 @@ class TestUploadEndpoints:
         # Create a large file (simulate 100MB)
         large_content = b"x" * (100 * 1024 * 1024)
         
-        files = {
-            "referral_file": ("large.pdf", BytesIO(large_content), "application/pdf"),
-            "pa_form_file": ("test_pa_form.pdf", BytesIO(b"%PDF-1.4"), "application/pdf")
-        }
+        files = [
+            ("files", ("large.pdf", BytesIO(large_content), "application/pdf")),
+            ("files", ("test_pa_form.pdf", BytesIO(b"%PDF-1.4"), "application/pdf"))
+        ]
         
         response = test_client.post("/api/upload", files=files)
         
@@ -62,23 +63,23 @@ class TestUploadEndpoints:
 
     def test_should_require_both_files(self, test_client, sample_pdf_bytes):
         """Test that both files are required."""
-        files = {
-            "referral_file": ("test_referral.pdf", BytesIO(sample_pdf_bytes), "application/pdf")
-            # Missing pa_form_file
-        }
+        files = [
+            ("files", ("test_referral.pdf", BytesIO(sample_pdf_bytes), "application/pdf"))
+            # Missing second file
+        ]
         
         response = test_client.post("/api/upload", files=files)
         
-        assert response.status_code == 422
+        assert response.status_code == 400
         data = response.json()
-        assert "pa_form_file" in str(data["detail"])
+        assert "Exactly 2 files required" in data["detail"]
 
     def test_should_generate_unique_session_ids(self, test_client, sample_pdf_bytes):
         """Test that unique session IDs are generated."""
-        files = {
-            "referral_file": ("test_referral.pdf", BytesIO(sample_pdf_bytes), "application/pdf"),
-            "pa_form_file": ("test_pa_form.pdf", BytesIO(sample_pdf_bytes), "application/pdf")
-        }
+        files = [
+            ("files", ("test_referral.pdf", BytesIO(sample_pdf_bytes), "application/pdf")),
+            ("files", ("test_pa_form.pdf", BytesIO(sample_pdf_bytes), "application/pdf"))
+        ]
         
         # Upload first file set
         response1 = test_client.post("/api/upload", files=files)

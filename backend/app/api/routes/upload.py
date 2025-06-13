@@ -4,6 +4,7 @@ Upload endpoint for handling PA form and referral packet uploads.
 from typing import List
 import uuid
 import os
+from datetime import datetime, timezone
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
 from fastapi.responses import JSONResponse
 
@@ -46,10 +47,10 @@ async def upload_files(
     
     try:
         # Initialize file storage service
-        storage = FileStorage(settings.upload_dir)
+        storage = FileStorage(settings.UPLOAD_DIR)
         
         # Create session directory
-        session_dir = await storage.create_session_directory(session_id)
+        session_dir = storage.create_session_directory(session_id)
         
         uploaded_files = []
         total_size = 0
@@ -63,11 +64,11 @@ async def upload_files(
                 )
             
             # Check file size
-            file_size = get_file_size(file.file)
-            if file_size > settings.max_file_size:
+            file_size = get_file_size(file)
+            if file_size > settings.MAX_FILE_SIZE:
                 raise HTTPException(
                     status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
-                    detail=f"File {file.filename} exceeds maximum size of {settings.max_file_size} bytes"
+                    detail=f"File {file.filename} exceeds maximum size of {settings.MAX_FILE_SIZE} bytes"
                 )
             
             total_size += file_size
@@ -114,18 +115,10 @@ async def upload_files(
         return UploadResponse(
             session_id=session_id,
             message="Files uploaded successfully",
-            referral_file={
-                "filename": referral_file["filename"],
-                "size": referral_file["size"],
-                "file_path": referral_file["file_path"]
-            },
-            pa_form_file={
-                "filename": pa_form_file["filename"],
-                "size": pa_form_file["size"],
-                "file_path": pa_form_file["file_path"]
-            },
-            total_size=total_size,
-            upload_timestamp=None  # Will be set by Pydantic default
+            files_received=[f["filename"] for f in uploaded_files],
+            referral_file=referral_file["filename"],
+            pa_form_file=pa_form_file["filename"],
+            upload_timestamp=datetime.now(timezone.utc)
         )
         
     except HTTPException:
@@ -155,8 +148,8 @@ async def get_upload_status(
         JSON response with session status
     """
     try:
-        storage = FileStorage(settings.upload_dir)
-        session_dir = os.path.join(settings.upload_dir, session_id)
+        storage = FileStorage(settings.UPLOAD_DIR)
+        session_dir = os.path.join(settings.UPLOAD_DIR, session_id)
         
         if not os.path.exists(session_dir):
             raise HTTPException(

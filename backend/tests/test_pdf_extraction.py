@@ -114,7 +114,7 @@ class TestMistralService:
     @pytest.fixture
     def mistral_service(self, test_settings):
         """Create MistralService instance."""
-        return MistralService(test_settings)
+        return MistralService()
 
     @pytest.mark.asyncio
     async def test_should_initialize_client(self, mistral_service):
@@ -193,7 +193,7 @@ class TestGeminiService:
     @pytest.fixture
     def gemini_service(self, test_settings):
         """Create GeminiService instance."""
-        return GeminiService(test_settings)
+        return GeminiService()
 
     @pytest.mark.asyncio
     async def test_should_initialize_client(self, gemini_service):
@@ -264,7 +264,7 @@ class TestWidgetDetector:
     @pytest.fixture
     def widget_detector(self, test_settings):
         """Create WidgetDetector instance."""
-        return WidgetDetector(test_settings)
+        return WidgetDetector()
 
     def test_should_detect_form_fields(self, widget_detector, sample_pdf_bytes, mock_pdf_form_fields):
         """Test detection of PDF form fields."""
@@ -349,27 +349,30 @@ class TestPDFExtractionIntegration:
     @pytest.mark.asyncio
     async def test_should_process_pa_form_with_widgets(self, test_settings, sample_pdf_bytes, mock_pdf_form_fields):
         """Test complete processing of PA form with widgets."""
-        extractor = PDFExtractor(test_settings)
-        detector = WidgetDetector(test_settings)
+        extractor = PDFExtractor()
+        detector = WidgetDetector()
+        
+        # Use real test PDF file instead of bytes
+        test_pdf_path = Path("tests/test_data/test_1_PA.pdf")
         
         with patch('app.services.widget_detector.pdfforms') as mock_pdfforms:
             mock_pdfforms.analyze_pdf.return_value = mock_pdf_form_fields
             
             # Extract text
-            text_result = extractor.extract_text_from_pdf(sample_pdf_bytes)
+            text_result = extractor.extract_text_from_pdf(test_pdf_path)
             
-            # Detect widgets
-            widget_result = detector.detect_form_fields(sample_pdf_bytes)
+            # Detect widgets  
+            widget_result = detector.detect_form_fields(test_pdf_path)
             
             assert text_result["total_pages"] >= 1
             assert widget_result["total_fields"] > 0
-            assert widget_result["has_widgets"] is True
+            assert widget_result["success"] is True
 
     @pytest.mark.asyncio
     async def test_should_handle_scanned_referral_documents(self, test_settings, sample_pdf_bytes):
         """Test handling of scanned referral documents (no widgets)."""
-        mistral_service = MistralService(test_settings)
-        gemini_service = GeminiService(test_settings)
+        mistral_service = MistralService()
+        gemini_service = GeminiService()
         
         with patch.object(mistral_service, 'extract_from_pdf_pages') as mock_mistral:
             mock_mistral.return_value = {
@@ -389,8 +392,8 @@ class TestPDFExtractionIntegration:
     @pytest.mark.asyncio
     async def test_should_fallback_to_gemini_on_mistral_failure(self, test_settings):
         """Test fallback from Mistral to Gemini on extraction failure."""
-        mistral_service = MistralService(test_settings)
-        gemini_service = GeminiService(test_settings)
+        mistral_service = MistralService()
+        gemini_service = GeminiService()
         
         pdf_pages = {"page_1": {"image_data": b"mock_page"}}
         

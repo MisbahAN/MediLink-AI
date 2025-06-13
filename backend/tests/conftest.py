@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import AsyncGenerator, Generator
 
 import pytest
+import pytest_asyncio
 import redis
 from fastapi.testclient import TestClient
 from httpx import AsyncClient
@@ -85,7 +86,7 @@ def test_client(test_settings: Settings) -> TestClient:
     app.dependency_overrides.clear()
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def async_client(test_settings: Settings) -> AsyncGenerator[AsyncClient, None]:
     """Create async HTTP client for testing."""
     app.dependency_overrides = {}

@@ -41,7 +41,7 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: Optional[str] = None  # Field mapping only
     
     # AI Model Settings
-    GEMINI_MODEL: str = "gemini-1.5-pro"
+    GEMINI_MODEL: str = "gemini-2.0-flash"
     MISTRAL_MODEL: str = "mistral-large-latest"
     OPENAI_MODEL: str = "gpt-4"
     MAX_TOKENS: int = 4000

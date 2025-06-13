@@ -17,7 +17,7 @@ class TestFieldMapper:
     @pytest.fixture
     def field_mapper(self, test_settings):
         """Create FieldMapper instance."""
-        return FieldMapper(test_settings)
+        return FieldMapper()
 
     def test_should_normalize_field_names(self, field_mapper):
         """Test field name normalization."""
@@ -245,7 +245,7 @@ class TestOpenAIService:
     @pytest.fixture
     def openai_service(self, test_settings):
         """Create OpenAIService instance."""
-        return OpenAIService(test_settings)
+        return OpenAIService()
 
     @pytest.mark.asyncio
     async def test_should_initialize_client(self, openai_service):
