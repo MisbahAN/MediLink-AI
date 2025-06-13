@@ -14,8 +14,8 @@ import pdfplumber
 import pdfforms
 from io import BytesIO
 
-from models.schemas import ExtractedField, ConfidenceLevel
-from core.config import get_settings
+from app.models.schemas import ExtractedField, ConfidenceLevel
+from app.core.config import get_settings
 
 logger = logging.getLogger(__name__)
 settings = get_settings()

@@ -20,8 +20,8 @@ try:
 except ImportError:
     pdfforms = None
 
-from models.schemas import PAFormField, FieldType, FieldMapping, ConfidenceLevel
-from core.config import get_settings
+from app.models.schemas import PAFormField, FieldType, FieldMapping, ConfidenceLevel
+from app.core.config import get_settings
 
 logger = logging.getLogger(__name__)
 settings = get_settings()

@@ -14,7 +14,7 @@ from difflib import SequenceMatcher
 import unicodedata
 from enum import Enum
 
-from models.schemas import ExtractedField, ConfidenceLevel, PatientInfo, ClinicalData
+from app.models.schemas import ExtractedField, ConfidenceLevel, PatientInfo, ClinicalData
 
 logger = logging.getLogger(__name__)
 

@@ -19,8 +19,8 @@ except ImportError:
     AsyncOpenAI = None
     openai = None
 
-from models.schemas import ExtractedField, ConfidenceLevel, PatientInfo, ClinicalData
-from core.config import get_settings
+from app.models.schemas import ExtractedField, ConfidenceLevel, PatientInfo, ClinicalData
+from app.core.config import get_settings
 
 logger = logging.getLogger(__name__)
 settings = get_settings()

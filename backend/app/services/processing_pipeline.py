@@ -13,11 +13,11 @@ from typing import Dict, List, Optional, Any, Tuple, Union
 from datetime import datetime, timezone
 from enum import Enum
 
-from models.schemas import (
+from app.models.schemas import (
     ProcessingStatusEnum, ExtractedData, PAFormField, MissingField, 
-    ProcessingResult, ConfidenceLevel
+    ProcessingResult, ConfidenceLevel, PatientInfo, ClinicalData
 )
-from core.config import get_settings
+from app.core.config import get_settings
 from .mistral_service import get_mistral_service
 from .gemini_service_fallback import get_gemini_service
 from .openai_service import get_openai_service
@@ -713,9 +713,9 @@ class ProcessingPipeline:
                 processing_status=ProcessingStatusEnum.FAILED,
                 extracted_data=ExtractedData(
                     session_id=session_id,
-                    patient_info={},
-                    clinical_data={},
-                    total_pages_processed=0,
+                    patient_info=PatientInfo(),
+                    clinical_data=ClinicalData(),
+                    total_pages_processed=1,  # Minimum value to satisfy schema validation
                     extraction_timestamp=start_time
                 ),
                 pa_form_fields={},

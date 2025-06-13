@@ -23,8 +23,8 @@ try:
 except ImportError:
     pdfplumber = None
 
-from models.schemas import PAFormField, FieldType
-from core.config import get_settings
+from app.models.schemas import PAFormField, FieldType
+from app.core.config import get_settings
 
 logger = logging.getLogger(__name__)
 settings = get_settings()

@@ -16,8 +16,8 @@ from pathlib import Path
 from dataclasses import dataclass
 from enum import Enum
 
-from core.config import get_settings
-from models.schemas import ProcessingStatusEnum
+from app.core.config import get_settings
+from app.models.schemas import ProcessingStatusEnum
 
 logger = logging.getLogger(__name__)
 settings = get_settings()

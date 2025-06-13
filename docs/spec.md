@@ -219,6 +219,13 @@ src/
 - API endpoint testing
 - Error handling
 
+# Performance tests
+- Large document processing (15+ pages)
+- Memory leak detection
+- Concurrent request handling
+- System resource monitoring
+- Processing time benchmarks
+
 # Manual validation
 - Visual comparison of outputs
 - Field accuracy checks
@@ -258,6 +265,14 @@ src/
 - Automatic chunking for files > 20MB
 - Stream processing for large documents
 - Memory-efficient processing
+
+### Performance Testing Tools
+- **Test Runner**: `backend/run_performance_tests.py` with multiple test modes
+- **Comprehensive Suite**: Single document, concurrent, memory leak testing
+- **System Monitoring**: CPU/memory tracking with psutil integration
+- **Benchmarking**: Processing time, throughput, and resource usage metrics
+- **Report Generation**: JSON reports with bottleneck analysis and recommendations
+- **Test Outputs**: Organized in `backend/test_outputs/performance_reports/`
 
 ## Security Considerations
 
