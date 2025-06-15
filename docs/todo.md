@@ -316,9 +316,14 @@
 ### Mistral API Integration (Future Priority Tasks)
 
 - [ ] Fix Mistral API integration to restore primary OCR service
-- [ ] Update Mistral API request format to fix validation errors  
+- [ ] Update Mistral API request format to fix validation errors
 - [ ] Test Mistral OCR with real documents and validate accuracy
 - [ ] Optimize processing pipeline for better performance with Mistral primary
+
+### Task for Misbah, not CLAUDE CODE
+
+- [ ] Go over entire codebase, and understand everything thats going on, restructure project if you think it makes everything better
+- [ ] Update main README.md to show backend progress
 
 ## Day 6-7: Frontend Development
 

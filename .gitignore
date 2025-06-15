@@ -259,3 +259,6 @@ dump.rdb
 
 # Vercel
 .vercel
+
+# Claude Code
+./claude
