@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-06-14 23:06:46",
+  "test_execution": {
+    "mode": "basic",
+    "exit_code": 1,
+    "success": false,
+    "execution_time_seconds": 1.6900489330291748,
+    "stdout": "\u001b[32m[INFO]\u001b[0m 2025-06-15 05:06:45 UTC core.logging - Logging configuration completed | log_level=INFO, log_file=logs/app.log, console_enabled=True, structured_format=True\n\u001b[32m[INFO]\u001b[0m 2025-06-15 05:06:45 UTC core.middleware - Middleware setup completed\n\u001b[32m[INFO]\u001b[0m 2025-06-15 05:06:45 UTC app.services.cache - Successfully connected to Redis at redis://localhost:6379\n\u001b[32m[INFO]\u001b[0m 2025-06-15 05:06:45 UTC app.services.storage - File storage initialized with base directory: uploads\n============================= test session starts ==============================\nplatform darwin -- Python 3.11.5, pytest-8.4.0, pluggy-1.6.0 -- /Users/misbahsmac/.pyenv/versions/3.11.5/bin/python\ncachedir: .pytest_cache\nrootdir: /Users/misbahsmac/Desktop/GitHub/MediLink-AI/backend\nconfigfile: pytest.ini\nplugins: anyio-4.9.0, env-1.1.5, asyncio-1.0.0\nasyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... \u001b[32m[INFO]\u001b[0m 2025-06-15 05:06:45 UTC app.services.mistral_service - Mistral OCR service initialized as PRIMARY extraction method\n\u001b[32m[INFO]\u001b[0m 2025-06-15 05:06:45 UTC app.services.gemini_service_fallback - Gemini service initialized as FALLBACK extraction method\n\u001b[32m[INFO]\u001b[0m 2025-06-15 05:06:45 UTC app.services.openai_service - OpenAI field mapping service initialized\n\u001b[32m[INFO]\u001b[0m 2025-06-15 05:06:45 UTC app.services.widget_detector - Widget detector initialized with medical form patterns\n\u001b[32m[INFO]\u001b[0m 2025-06-15 05:06:45 UTC app.services.field_mapper - Field mapping engine initialized with comprehensive medical field patterns\n\u001b[32m[INFO]\u001b[0m 2025-06-15 05:06:45 UTC app.services.concurrent_processor - Async processor initialized with 5 max workers\n\u001b[32m[INFO]\u001b[0m 2025-06-15 05:06:45 UTC app.services.processing_pipeline - Processing pipeline initialized with comprehensive workflow\ncollected 1 item\n\ntests/test_e2e_workflow.py::TestE2EWorkflow::test_complete_pipeline_single_document ERROR\n\n==================================== ERRORS ====================================\n___ ERROR at setup of TestE2EWorkflow.test_complete_pipeline_single_document ___\n../../../../.pyenv/versions/3.11.5/lib/python3.11/site-packages/pytest_asyncio/plugin.py:321: in _asyncgen_fixture_wrapper\n    result = event_loop.run_until_complete(setup_task)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n../../../../.pyenv/versions/3.11.5/lib/python3.11/asyncio/base_events.py:653: in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n../../../../.pyenv/versions/3.11.5/lib/python3.11/site-packages/pytest_asyncio/plugin.py:316: in setup\n    res = await gen_obj.__anext__()  # type: ignore[union-attr]\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/conftest.py:96: in async_client\n    async with AsyncClient(app=app, base_url=\"http://test\") as client:\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   TypeError: AsyncClient.__init__() got an unexpected keyword argument 'app'\n=============================== warnings summary ===============================\n../../../../.pyenv/versions/3.11.5/lib/python3.11/site-packages/starlette/formparsers.py:12\n  /Users/misbahsmac/.pyenv/versions/3.11.5/lib/python3.11/site-packages/starlette/formparsers.py:12: PendingDeprecationWarning: Please use `import python_multipart` instead.\n    import multipart\n\n../../../../.pyenv/versions/3.11.5/lib/python3.11/site-packages/pydantic/_internal/_config.py:323: 26 warnings\n  /Users/misbahsmac/.pyenv/versions/3.11.5/lib/python3.11/site-packages/pydantic/_internal/_config.py:323: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/\n    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)\n\n../../../../.pyenv/versions/3.11.5/lib/python3.11/site-packages/pydantic/_internal/_config.py:373\n  /Users/misbahsmac/.pyenv/versions/3.11.5/lib/python3.11/site-packages/pydantic/_internal/_config.py:373: UserWarning: Valid config keys have changed in V2:\n  * 'schema_extra' has been renamed to 'json_schema_extra'\n    warnings.warn(message, UserWarning)\n\napp/main.py:440\n  /Users/misbahsmac/Desktop/GitHub/MediLink-AI/backend/app/main.py:440: DeprecationWarning: \n          on_event is deprecated, use lifespan event handlers instead.\n  \n          Read more about it in the\n          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).\n          \n    @app.on_event(\"startup\")\n\n../../../../.pyenv/versions/3.11.5/lib/python3.11/site-packages/fastapi/applications.py:4495\n../../../../.pyenv/versions/3.11.5/lib/python3.11/site-packages/fastapi/applications.py:4495\n  /Users/misbahsmac/.pyenv/versions/3.11.5/lib/python3.11/site-packages/fastapi/applications.py:4495: DeprecationWarning: \n          on_event is deprecated, use lifespan event handlers instead.\n  \n          Read more about it in the\n          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).\n          \n    return self.router.on_event(event_type)\n\napp/main.py:452\n  /Users/misbahsmac/Desktop/GitHub/MediLink-AI/backend/app/main.py:452: DeprecationWarning: \n          on_event is deprecated, use lifespan event handlers instead.\n  \n          Read more about it in the\n          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).\n          \n    @app.on_event(\"shutdown\")\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR tests/test_e2e_workflow.py::TestE2EWorkflow::test_complete_pipeline_single_document\n======================== 32 warnings, 1 error in 0.11s =========================\n",
+    "stderr": "",
+    "system_metrics": {
+      "initial_memory_mb": 134.015625,
+      "final_memory_mb": 133.9375,
+      "memory_delta_mb": -0.078125,
+      "cpu_count": 8,
+      "disk_usage": {
+        "total": 494353338368,
+        "used": 12264108032,
+        "free": 341742161920,
+        "percent": 3.5
+      }
+    }
+  },
+  "output_analysis": {
+    "files_generated": [
+      {
+        "filename": "README.md",
+        "size_bytes": 3081,
+        "type": ".md"
+      }
+    ],
+    "validation_reports": [],
+    "performance_metrics": [],
+    "golden_outputs": []
+  },
+  "summary": {
+    "overall_status": "FAIL",
+    "execution_time": 1.6900489330291748,
+    "files_generated": 1,
+    "validation_reports": 0,
+    "performance_tests": 0
+  },
+  "recommendations": [
+    "\u274c Some E2E tests failed - review stderr output"
+  ]
+}

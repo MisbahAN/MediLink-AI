@@ -88,13 +88,31 @@ def test_client(test_settings: Settings) -> TestClient:
 
 @pytest_asyncio.fixture
 async def async_client(test_settings: Settings) -> AsyncGenerator[AsyncClient, None]:
-    """Create async HTTP client for testing."""
+    """Create async test client for testing."""
     app.dependency_overrides = {}
     from app.core.deps import get_current_settings
     app.dependency_overrides[get_current_settings] = lambda: test_settings
     
-    async with AsyncClient(app=app, base_url="http://test") as client:
-        yield client
+    async with AsyncClient(base_url="http://test") as client:
+        # Set up the ASGI app context
+        import httpx
+        from fastapi.testclient import TestClient
+        
+        # Use TestClient for simplicity with file uploads
+        sync_client = TestClient(app)
+        
+        # Monkey patch the client to work with our async interface
+        class AsyncTestClient:
+            def __init__(self, sync_client):
+                self._sync_client = sync_client
+                
+            async def post(self, url, **kwargs):
+                return self._sync_client.post(url, **kwargs)
+                
+            async def get(self, url, **kwargs):
+                return self._sync_client.get(url, **kwargs)
+                
+        yield AsyncTestClient(sync_client)
     
     # Cleanup
     app.dependency_overrides.clear()

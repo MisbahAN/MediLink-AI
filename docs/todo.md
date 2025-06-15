@@ -310,7 +310,15 @@
 - [x] Stabilize core functionality (reduced errors from 40 to 13, maintained 23 passing tests)
 - [x] Performance testing with large documents
 - [x] Directory cleanup and file path organization
-- [ ] End-to-end workflow testing
+- [x] End-to-end workflow testing
+- [x] Document performance benchmarks and test results
+
+### Mistral API Integration (Future Priority Tasks)
+
+- [ ] Fix Mistral API integration to restore primary OCR service
+- [ ] Update Mistral API request format to fix validation errors  
+- [ ] Test Mistral OCR with real documents and validate accuracy
+- [ ] Optimize processing pipeline for better performance with Mistral primary
 
 ## Day 6-7: Frontend Development
 

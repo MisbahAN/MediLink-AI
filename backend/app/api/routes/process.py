@@ -175,18 +175,18 @@ async def start_processing(
             )
         
         # Validate PDF files
-        referral_validation = validate_pdf(referral_path)
-        if not referral_validation["valid"]:
+        referral_validation = validate_pdf(Path(referral_path))
+        if not referral_validation["is_valid"]:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail=f"Invalid referral PDF: {referral_validation['error']}"
+                detail=f"Invalid referral PDF: {referral_validation.get('errors', ['Unknown error'])}"
             )
         
-        pa_form_validation = validate_pdf(pa_form_path)
-        if not pa_form_validation["valid"]:
+        pa_form_validation = validate_pdf(Path(pa_form_path))
+        if not pa_form_validation["is_valid"]:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail=f"Invalid PA form PDF: {pa_form_validation['error']}"
+                detail=f"Invalid PA form PDF: {pa_form_validation.get('errors', ['Unknown error'])}"
             )
         
         # Check if processing is already in progress
@@ -491,7 +491,7 @@ async def _get_session_files(session_id: str, file_storage) -> Optional[Dict[str
     try:
         # This is a simplified implementation
         # In practice, you would check the file storage service for uploaded files
-        session_dir = Path(file_storage.upload_dir) / session_id
+        session_dir = Path(file_storage.base_upload_dir) / session_id
         
         if not session_dir.exists():
             return None

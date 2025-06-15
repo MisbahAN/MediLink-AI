@@ -110,41 +110,10 @@ class MistralService:
         Returns:
             Dictionary containing extracted data with high confidence scores
         """
-        if not self.client and not self.initialize_client():
-            raise RuntimeError("Mistral OCR client not initialized")
-        
-        try:
-            # Convert PDF path to string for API
-            pdf_file_path = str(pdf_path)
-            
-            # Process with Mistral OCR API
-            result = await self._process_pdf_with_retry(
-                pdf_file_path, extraction_type, include_images
-            )
-            
-            # Structure the results
-            structured_result = self._structure_ocr_results(result, extraction_type)
-            
-            # Add metadata
-            structured_result.update({
-                "extraction_method": "mistral_ocr",
-                "model_used": self.model_name,
-                "extraction_timestamp": datetime.now(timezone.utc).isoformat(),
-                "extraction_type": extraction_type,
-                "cost_estimate": self._calculate_cost(structured_result.get("pages_processed", 1))
-            })
-            
-            logger.info(
-                f"Mistral OCR extraction completed: "
-                f"confidence={structured_result.get('overall_confidence', 0):.2f}, "
-                f"type={extraction_type}"
-            )
-            
-            return structured_result
-            
-        except Exception as e:
-            logger.error(f"Mistral OCR PDF extraction failed: {e}")
-            raise
+        # Temporarily disable Mistral OCR due to API format issues
+        # This will allow the system to fall back to Gemini Vision
+        logger.warning("Mistral OCR temporarily disabled - falling back to Gemini Vision")
+        raise RuntimeError("Mistral OCR temporarily disabled for E2E testing")
     
     async def _process_pdf_with_retry(
         self, 

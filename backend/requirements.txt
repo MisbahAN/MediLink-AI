@@ -9,7 +9,9 @@ mistralai>=1.8.2
 redis>=5.0.1
 python-multipart>=0.0.6
 aiofiles>=23.2.1
+python-dotenv>=1.0.0
 python-magic>=0.4.27
+PyMuPDF>=1.24.0
 python-jose[cryptography]
 passlib[bcrypt]
 pytest>=7.4.3
