@@ -1,3 +1,4 @@
+# backend/app/core/middleware.py
 """
 Middleware components for request processing, validation, and logging.
 

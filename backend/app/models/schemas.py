@@ -1,3 +1,4 @@
+# backend/app/models/schemas.py
 """
 Pydantic models for API data validation and serialization.
 

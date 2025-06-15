@@ -1,3 +1,4 @@
+# backend/app/core/deps.py
 """
 Common dependencies for FastAPI routes.
 

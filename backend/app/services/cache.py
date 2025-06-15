@@ -1,3 +1,4 @@
+# backend/app/services/cache.py
 """
 Redis Cache Service for caching processing results and session data.
 

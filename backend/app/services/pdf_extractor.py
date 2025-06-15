@@ -1,3 +1,4 @@
+# backend/app/services/pdf_extractor.py
 """
 PDF extraction service for processing PA forms and referral documents.
 

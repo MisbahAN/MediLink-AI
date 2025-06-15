@@ -1,3 +1,4 @@
+# backend/app/services/mistral_service.py
 """
 Mistral OCR service for PDF extraction and document processing.
 

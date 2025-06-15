@@ -1,3 +1,4 @@
+# backend/app/services/widget_detector.py
 """
 Widget Detection Service for PDF form field detection and analysis.
 
