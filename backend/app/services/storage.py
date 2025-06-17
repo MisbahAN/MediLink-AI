@@ -183,6 +183,22 @@ class FileStorage:
             # Reset file position for potential reuse
             await file.seek(0)
     
+    def get_session_directory(self, session_id: str) -> Optional[Path]:
+        """
+        Get path to a session directory.
+        
+        Args:
+            session_id: Session identifier
+            
+        Returns:
+            Path object to session directory if it exists, None otherwise
+        """
+        session_dir = self.base_upload_dir / session_id
+        
+        if session_dir.exists() and session_dir.is_dir():
+            return session_dir
+        return None
+    
     def get_file(self, session_id: str, filename: str) -> Optional[Path]:
         """
         Get path to a file in session directory.

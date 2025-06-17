@@ -9,6 +9,7 @@ Optimized for medical form processing with comprehensive field analysis.
 
 import logging
 import re
+import io
 from pathlib import Path
 from typing import Dict, List, Optional, Any, Tuple, Union
 from datetime import datetime, timezone
@@ -458,6 +459,13 @@ class WidgetDetector:
                 logger.error(f"Failed to analyze field {field_id}: {e}")
                 analyzed_fields[field_id] = field_data
         
+        # Enhance fields with OCR-detected labels
+        try:
+            logger.info("Enhancing fields with OCR-detected labels...")
+            analyzed_fields = self.enhance_fields_with_ocr_labels(pdf_path, analyzed_fields)
+        except Exception as e:
+            logger.warning(f"OCR enhancement failed, continuing with basic analysis: {e}")
+        
         return analyzed_fields
     
     def _normalize_field_name(self, field_name: str) -> str:
@@ -481,7 +489,7 @@ class WidgetDetector:
             return self.widget_type_mapping[field_type]
         
         # Analyze field name for type hints
-        field_name = field_data.get("name", "").lower()
+        field_name = (field_data.get("name") or "").lower()
         
         if any(pattern in field_name for pattern in ["date", "dob", "birth"]):
             return FieldType.DATE
@@ -513,7 +521,7 @@ class WidgetDetector:
             return True
         
         # Check field name for required indicators
-        field_name = field_data.get("name", "").lower()
+        field_name = (field_data.get("name") or "").lower()
         return any(indicator in field_name for indicator in self.required_indicators)
     
     def _categorize_field(self, field_name: str) -> FieldCategory:
@@ -584,7 +592,7 @@ class WidgetDetector:
     
     def _get_suggested_sources(self, field_data: Dict[str, Any]) -> List[str]:
         """Get suggested data sources for field mapping."""
-        field_name = field_data.get("field_name", "").lower()
+        field_name = (field_data.get("field_name") or "").lower()
         
         if "patient" in field_name or "name" in field_name:
             return ["patient_demographics.name", "referral_header.patient_name"]
@@ -607,7 +615,7 @@ class WidgetDetector:
             return "Convert to MM/DD/YYYY format"
         elif field_type == FieldType.CHECKBOX:
             return "Map to Yes/No or checked/unchecked values"
-        elif "phone" in field_data.get("field_name", "").lower():
+        elif "phone" in (field_data.get("field_name") or "").lower():
             return "Format as (XXX) XXX-XXXX"
         
         return "Use value as-is with validation"
@@ -647,6 +655,148 @@ class WidgetDetector:
             stats["field_categories"][category] = stats["field_categories"].get(category, 0) + 1
         
         return stats
+    
+    def enhance_fields_with_ocr_labels(self, pdf_path: Union[str, Path], fields: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Enhance field detection by reading text labels near form fields using OCR.
+        
+        Args:
+            pdf_path: Path to the PDF file
+            fields: Dictionary of detected fields with coordinates
+            
+        Returns:
+            Enhanced fields dictionary with semantic labels
+        """
+        try:
+            import pytesseract
+            from PIL import Image
+            import fitz  # PyMuPDF
+            import numpy as np
+        except ImportError as e:
+            logger.warning(f"OCR dependencies not available: {e}")
+            return fields
+        
+        try:
+            pdf_path = Path(pdf_path)
+            enhanced_fields = {}
+            
+            # Open PDF with PyMuPDF for high-quality rendering
+            doc = fitz.open(str(pdf_path))
+            
+            for field_id, field_data in fields.items():
+                enhanced_field = field_data.copy()
+                
+                # Get field coordinates
+                coords = field_data.get("coordinates", {})
+                if not coords or not all(k in coords for k in ["x", "y", "width", "height"]):
+                    enhanced_fields[field_id] = enhanced_field
+                    continue
+                
+                # Find the page containing this field
+                page_num = field_data.get("page", 0)
+                if page_num >= len(doc):
+                    enhanced_fields[field_id] = enhanced_field
+                    continue
+                
+                page = doc[page_num]
+                
+                # Expand search area around the field to capture labels
+                search_margin = 100  # pixels
+                x = max(0, coords["x"] - search_margin)
+                y = max(0, coords["y"] - search_margin)
+                width = coords["width"] + (2 * search_margin)
+                height = coords["height"] + search_margin
+                
+                # Create clip rectangle for the search area
+                clip_rect = fitz.Rect(x, y, x + width, y + height)
+                
+                # Render this area as image
+                mat = fitz.Matrix(2.0, 2.0)  # 2x zoom for better OCR
+                pix = page.get_pixmap(matrix=mat, clip=clip_rect)
+                
+                # Convert to PIL Image
+                img_data = pix.tobytes("ppm")
+                image = Image.open(io.BytesIO(img_data))
+                
+                # Use OCR to extract text from the area
+                ocr_text = pytesseract.image_to_string(image, config='--psm 6')
+                ocr_text = ocr_text.strip()
+                
+                if ocr_text:
+                    # Clean and process the OCR text
+                    cleaned_text = self._clean_ocr_text(ocr_text)
+                    semantic_label = self._extract_semantic_label(cleaned_text)
+                    
+                    if semantic_label:
+                        enhanced_field["semantic_label"] = semantic_label
+                        enhanced_field["ocr_text"] = cleaned_text
+                        enhanced_field["display_label"] = semantic_label
+                        
+                        # Update field name with semantic meaning
+                        enhanced_field["field_name"] = semantic_label.lower().replace(" ", "_")
+                        
+                        logger.debug(f"Enhanced field {field_id}: {semantic_label}")
+                
+                enhanced_fields[field_id] = enhanced_field
+            
+            doc.close()
+            
+            logger.info(f"Enhanced {len([f for f in enhanced_fields.values() if 'semantic_label' in f])} fields with OCR labels")
+            return enhanced_fields
+            
+        except Exception as e:
+            logger.error(f"OCR enhancement failed: {e}")
+            return fields
+    
+    def _clean_ocr_text(self, text: str) -> str:
+        """Clean OCR text by removing noise and normalizing."""
+        import re
+        
+        # Remove extra whitespace and special characters
+        cleaned = re.sub(r'\s+', ' ', text)
+        cleaned = re.sub(r'[^\w\s\-\(\):]', '', cleaned)
+        cleaned = cleaned.strip()
+        
+        return cleaned
+    
+    def _extract_semantic_label(self, text: str) -> str:
+        """Extract meaningful semantic label from OCR text."""
+        text_lower = text.lower()
+        
+        # Common field label patterns in medical forms
+        label_patterns = {
+            "patient_name": ["patient name", "name", "patient", "full name"],
+            "date_of_birth": ["date of birth", "dob", "birth date", "birthday"],
+            "member_id": ["member id", "insurance id", "policy number", "subscriber id"],
+            "phone_number": ["phone", "telephone", "phone number", "contact"],
+            "address": ["address", "street address", "mailing address"],
+            "provider_name": ["provider", "doctor", "physician", "prescriber"],
+            "diagnosis": ["diagnosis", "condition", "medical condition"],
+            "medication": ["medication", "drug", "prescription"],
+            "insurance": ["insurance", "plan", "coverage"],
+            "authorization": ["authorization", "prior auth", "pa number"]
+        }
+        
+        # Find the best matching label
+        best_match = None
+        best_score = 0
+        
+        for semantic_name, patterns in label_patterns.items():
+            for pattern in patterns:
+                if pattern in text_lower:
+                    score = len(pattern) / len(text_lower)  # Preference for exact matches
+                    if score > best_score:
+                        best_score = score
+                        best_match = semantic_name
+        
+        if best_match:
+            return best_match.replace("_", " ").title()
+        
+        # If no pattern matches, return cleaned text if it looks like a label
+        if len(text) < 50 and not any(char.isdigit() for char in text):
+            return text.title()
+        
+        return None
     
     def _generate_field_statistics(self, fields: Dict[str, Any]) -> Dict[str, Any]:
         """Generate comprehensive statistics for detected fields."""

@@ -21,7 +21,7 @@ from core.deps import get_current_settings
 from models.schemas import (
     ProcessingStatus, ProcessingResult, ProcessingStatusEnum, ErrorResponse
 )
-from services.processing_pipeline import get_processing_pipeline
+from services.processing_pipeline import get_processing_pipeline, ProcessingStage
 from services.storage import get_file_storage
 from utils.file_handler import validate_pdf
 
@@ -31,6 +31,28 @@ router = APIRouter()
 # Global storage for tracking processing sessions
 # In production, this should be replaced with Redis or database
 processing_sessions: Dict[str, Dict[str, Any]] = {}
+
+
+def map_processing_stage_to_status(stage) -> ProcessingStatusEnum:
+    """Map ProcessingStage to ProcessingStatusEnum."""
+    if isinstance(stage, str):
+        stage_value = stage
+    else:
+        stage_value = stage.value if hasattr(stage, 'value') else str(stage)
+        
+    mapping = {
+        "initializing": ProcessingStatusEnum.PENDING,
+        "validating_files": ProcessingStatusEnum.PENDING,
+        "extracting_referral": ProcessingStatusEnum.EXTRACTING,
+        "detecting_pa_fields": ProcessingStatusEnum.EXTRACTING,
+        "mapping_fields": ProcessingStatusEnum.MAPPING,
+        "applying_thresholds": ProcessingStatusEnum.MAPPING,
+        "generating_output": ProcessingStatusEnum.FILLING,
+        "completed": ProcessingStatusEnum.COMPLETED,
+        "failed": ProcessingStatusEnum.FAILED
+    }
+    
+    return mapping.get(stage_value, ProcessingStatusEnum.PENDING)
 
 
 async def progress_callback(progress_data: Dict[str, Any]) -> None:
@@ -43,8 +65,10 @@ async def progress_callback(progress_data: Dict[str, Any]) -> None:
     session_id = progress_data.get("session_id")
     if session_id and session_id in processing_sessions:
         # Update session progress
+        stage = progress_data.get("stage", "unknown")
+        mapped_status = map_processing_stage_to_status(stage)
         processing_sessions[session_id].update({
-            "status": progress_data.get("stage", "unknown"),
+            "status": mapped_status,
             "progress_percentage": progress_data.get("progress", 0),
             "current_step": progress_data.get("message", "Processing..."),
             "last_updated": datetime.now(timezone.utc),

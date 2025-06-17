@@ -1,0 +1,66 @@
+{
+  "start_time": "2025-06-17T10:15:54.121545",
+  "test_cases_found": [
+    "test_1",
+    "test_3",
+    "test_2"
+  ],
+  "health_check": {
+    "endpoint": "/api/health",
+    "success": false,
+    "error": "All connection attempts failed"
+  },
+  "test_results": {
+    "test_1": {
+      "test_case": "test_1",
+      "start_time": 1750176954.126466,
+      "steps": {
+        "upload": {
+          "endpoint": "/api/upload",
+          "test_case": "test_1",
+          "success": false,
+          "error": "All connection attempts failed"
+        }
+      },
+      "success": false,
+      "failure_step": "upload"
+    },
+    "test_3": {
+      "test_case": "test_3",
+      "start_time": 1750176959.128886,
+      "steps": {
+        "upload": {
+          "endpoint": "/api/upload",
+          "test_case": "test_3",
+          "success": false,
+          "error": "All connection attempts failed"
+        }
+      },
+      "success": false,
+      "failure_step": "upload"
+    },
+    "test_2": {
+      "test_case": "test_2",
+      "start_time": 1750176964.135757,
+      "steps": {
+        "upload": {
+          "endpoint": "/api/upload",
+          "test_case": "test_2",
+          "success": false,
+          "error": "All connection attempts failed"
+        }
+      },
+      "success": false,
+      "failure_step": "upload"
+    }
+  },
+  "summary": {
+    "total_duration": 15.019171953201294,
+    "total_tests": 3,
+    "successful_tests": 0,
+    "failed_tests": 3,
+    "success_rate": 0.0,
+    "ai_services_tested": [],
+    "performance_metrics": {}
+  }
+}

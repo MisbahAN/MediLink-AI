@@ -167,6 +167,9 @@ class GeminiService:
             
         except Exception as e:
             logger.error(f"Gemini PDF extraction failed: {e}")
+            logger.error(f"Exception type: {type(e).__name__}, Details: {str(e)}")
+            import traceback
+            logger.error(f"Traceback: {traceback.format_exc()}")
             raise
     
     async def _pdf_to_images(
@@ -434,8 +437,17 @@ Return your response as a valid JSON object with the following structure:
         
         def collect_confidences(data):
             if isinstance(data, dict):
-                if "confidence" in data and isinstance(data["confidence"], (int, float)):
-                    confidence_scores.append(float(data["confidence"]))
+                if "confidence" in data:
+                    conf_val = data["confidence"]
+                    # Handle string confidence values that can be converted to float
+                    try:
+                        if isinstance(conf_val, (int, float)):
+                            confidence_scores.append(float(conf_val))
+                        elif isinstance(conf_val, str) and conf_val.replace('.', '', 1).isdigit():
+                            confidence_scores.append(float(conf_val))
+                    except (ValueError, TypeError):
+                        # Skip invalid confidence values
+                        pass
                 else:
                     for value in data.values():
                         collect_confidences(value)
@@ -532,16 +544,66 @@ Return your response as a valid JSON object with the following structure:
             page_patient_info = extracted.get("patient_info", {})
             for field, data in page_patient_info.items():
                 if isinstance(data, dict) and "value" in data and "confidence" in data:
-                    current_confidence = patient_info_merged.get(field, {}).get("confidence", 0.0)
-                    if data["confidence"] > current_confidence:
+                    current_conf_raw = patient_info_merged.get(field, {}).get("confidence", 0.0)
+                    # Convert current confidence to float
+                    try:
+                        if isinstance(current_conf_raw, (int, float)):
+                            current_confidence = float(current_conf_raw)
+                        elif isinstance(current_conf_raw, str):
+                            current_confidence = float(current_conf_raw) if current_conf_raw.replace('.', '', 1).isdigit() else 0.0
+                        else:
+                            current_confidence = 0.0
+                    except (ValueError, TypeError):
+                        current_confidence = 0.0
+                        
+                    # Handle None, string, and numeric confidence values for new data
+                    try:
+                        conf_val = data["confidence"]
+                        if conf_val is None:
+                            data_confidence = 0.0
+                        elif isinstance(conf_val, (int, float)):
+                            data_confidence = float(conf_val)
+                        elif isinstance(conf_val, str):
+                            data_confidence = float(conf_val) if conf_val.replace('.', '', 1).isdigit() else 0.0
+                        else:
+                            data_confidence = 0.0
+                    except (ValueError, TypeError):
+                        data_confidence = 0.0
+                    
+                    if data_confidence > current_confidence:
                         patient_info_merged[field] = data
             
             # Merge clinical data
             page_clinical_data = extracted.get("clinical_info", {})
             for field, data in page_clinical_data.items():
                 if isinstance(data, dict) and "value" in data and "confidence" in data:
-                    current_confidence = clinical_data_merged.get(field, {}).get("confidence", 0.0)
-                    if data["confidence"] > current_confidence:
+                    current_conf_raw = clinical_data_merged.get(field, {}).get("confidence", 0.0)
+                    # Convert current confidence to float
+                    try:
+                        if isinstance(current_conf_raw, (int, float)):
+                            current_confidence = float(current_conf_raw)
+                        elif isinstance(current_conf_raw, str):
+                            current_confidence = float(current_conf_raw) if current_conf_raw.replace('.', '', 1).isdigit() else 0.0
+                        else:
+                            current_confidence = 0.0
+                    except (ValueError, TypeError):
+                        current_confidence = 0.0
+                        
+                    # Handle None, string, and numeric confidence values for new data
+                    try:
+                        conf_val = data["confidence"]
+                        if conf_val is None:
+                            data_confidence = 0.0
+                        elif isinstance(conf_val, (int, float)):
+                            data_confidence = float(conf_val)
+                        elif isinstance(conf_val, str):
+                            data_confidence = float(conf_val) if conf_val.replace('.', '', 1).isdigit() else 0.0
+                        else:
+                            data_confidence = 0.0
+                    except (ValueError, TypeError):
+                        data_confidence = 0.0
+                    
+                    if data_confidence > current_confidence:
                         clinical_data_merged[field] = data
                 elif isinstance(data, list):
                     # Handle lists (e.g., diagnosis_codes)

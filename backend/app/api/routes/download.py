@@ -53,17 +53,21 @@ async def download_filled_form(
                 detail="Invalid session ID format"
             )
         
+        # Import processing sessions from process route
+        from app.api.routes.process import processing_sessions
+        
         # Check if processing is complete
-        processing_result = cache_service.get_cached_processing_result(session_id)
-        if not processing_result:
+        if session_id not in processing_sessions:
             raise HTTPException(
                 status_code=404,
                 detail="Session not found or processing not complete"
             )
         
+        session_data = processing_sessions[session_id]
+        
         # Verify processing status
-        if processing_result.get("status") != "completed":
-            status = processing_result.get("status", "unknown")
+        if session_data.get("status") != "completed":
+            status = session_data.get("status", "unknown")
             raise HTTPException(
                 status_code=409,
                 detail=f"Processing not complete. Current status: {status}"
@@ -161,9 +165,11 @@ async def download_missing_fields_report(
             file_extension = "txt"
             media_type = "text/plain"
         
+        # Import processing sessions from process route
+        from app.api.routes.process import processing_sessions
+        
         # Check if processing is complete
-        processing_result = cache_service.get_cached_processing_result(session_id)
-        if not processing_result:
+        if session_id not in processing_sessions:
             raise HTTPException(
                 status_code=404,
                 detail="Session not found or processing not complete"
@@ -233,9 +239,11 @@ async def get_download_status(
                 detail="Invalid session ID format"
             )
         
+        # Import processing sessions from process route
+        from app.api.routes.process import processing_sessions
+        
         # Check processing status
-        processing_result = cache_service.get_cached_processing_result(session_id)
-        if not processing_result:
+        if session_id not in processing_sessions:
             return {
                 "session_id": session_id,
                 "processing_complete": False,
@@ -244,7 +252,8 @@ async def get_download_status(
                 "status": "Session not found"
             }
         
-        processing_status = processing_result.get("status", "unknown")
+        session_data = processing_sessions[session_id]
+        processing_status = session_data.get("status", "unknown")
         processing_complete = processing_status == "completed"
         
         # Check file availability

@@ -84,17 +84,42 @@ class OpenAIService:
             return False
         
         try:
+            # Create a custom http client to avoid version conflicts
+            import httpx
+            
+            # Create httpx client with minimal configuration
+            http_client = httpx.AsyncClient(
+                timeout=httpx.Timeout(300.0),  # 5 minutes timeout
+                limits=httpx.Limits(max_keepalive_connections=20, max_connections=100)
+            )
+            
+            # Initialize OpenAI client with custom http client
             self.client = AsyncOpenAI(
                 api_key=self.api_key,
-                timeout=self.timeout_seconds
+                http_client=http_client
             )
             
             logger.info(f"OpenAI client initialized successfully with model {self.model_name}")
             return True
             
         except Exception as e:
-            logger.error(f"Failed to initialize OpenAI client: {e}")
-            return False
+            logger.warning(f"Custom http client initialization failed: {e}, trying basic config")
+            try:
+                # Ultimate fallback - most basic initialization possible
+                self.client = AsyncOpenAI(api_key=self.api_key)
+                logger.info(f"OpenAI client initialized with basic config")
+                return True
+            except Exception as e2:
+                logger.error(f"All OpenAI initialization methods failed: {e2}")
+                # Set a flag to use synchronous client if needed
+                try:
+                    import openai
+                    openai.api_key = self.api_key
+                    logger.warning("Using synchronous OpenAI client as fallback")
+                    return True
+                except Exception as e3:
+                    logger.error(f"Even synchronous client failed: {e3}")
+                    return False
     
     def create_field_mapping_prompt(
         self, 
@@ -111,8 +136,24 @@ class OpenAIService:
         Returns:
             Formatted prompt for GPT-4 analysis
         """
-        referral_data_str = json.dumps(referral_data, indent=2)
-        pa_form_fields_str = json.dumps(pa_form_fields, indent=2)
+        # Convert Pydantic models to dictionaries for JSON serialization
+        def convert_to_dict(obj):
+            if hasattr(obj, 'model_dump'):
+                return obj.model_dump()
+            elif hasattr(obj, 'dict'):
+                return obj.dict()
+            elif isinstance(obj, dict):
+                return {k: convert_to_dict(v) for k, v in obj.items()}
+            elif isinstance(obj, list):
+                return [convert_to_dict(item) for item in obj]
+            else:
+                return obj
+        
+        referral_data_dict = convert_to_dict(referral_data)
+        pa_form_fields_dict = convert_to_dict(pa_form_fields)
+        
+        referral_data_str = json.dumps(referral_data_dict, indent=2, default=str)
+        pa_form_fields_str = json.dumps(pa_form_fields_dict, indent=2, default=str)
         
         prompt = f"""
 You are a medical document processing expert tasked with mapping extracted referral data to Prior Authorization (PA) form fields.
