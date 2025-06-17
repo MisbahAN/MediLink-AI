@@ -7,6 +7,7 @@ An AI-powered system that automates the extraction of information from medical r
 ## Technical Stack
 
 ### Frontend
+
 - **Framework**: Next.js 14+ (App Router)
 - **Styling**: Tailwind CSS
 - **UI Components**: shadcn/ui
@@ -15,24 +16,25 @@ An AI-powered system that automates the extraction of information from medical r
 - **Deployment**: Vercel
 
 ### Backend
+
 - **Framework**: FastAPI (Python 3.11+)
-- **PDF Processing**: 
+- **PDF Processing**:
   - pdfforms (widget-based forms)
   - pdfplumber (text extraction with coordinates)
-- **AI/OCR Services**:
-  - Mistral OCR API (primary) - Dedicated OCR processing
-  - Google Gemini API (fallback) - Vision model backup
-  - OpenAI GPT-4 (field mapping)
+- **AI/OCR Services** (Budget-Optimized):
+  - Mistral OCR API (`mistral-ocr-latest`) - Primary OCR with batch processing ($0.0005/page)
+  - Google Gemini API (`gemini-2.0-flash`) - Fallback vision processing (1M context, free tier)
+  - OpenAI API (`gpt-4o-mini`) - Cost-effective field mapping ($0.15/1M input tokens)
 - **Deployment**: Render
 - **Storage**: Temporary file system + Redis for caching
 
 ## System Architecture
 
 ```
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
 │   Next.js UI    │────▶│  FastAPI Backend │────▶│  AI Services    │
-│    (Vercel)     │     │    (Render)      │     │ (Mistral/Gemini) │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
+│    (Vercel)     │     │    (Render)      │     │ (Mistral/Gemini)│
+└─────────────────┘     └──────────────────┘     └─────────────────┘
                                │
                                ▼
                         ┌─────────────────┐
@@ -46,6 +48,7 @@ An AI-powered system that automates the extraction of information from medical r
 ### 1. Document Processing Pipeline
 
 #### Phase 1: Extraction
+
 ```python
 # Pseudo-flow
 1. Upload referral PDF + PA form PDF
@@ -61,6 +64,7 @@ An AI-powered system that automates the extraction of information from medical r
 ```
 
 #### Phase 2: Data Mapping
+
 ```python
 # AI-powered field matching
 1. Analyze PA form fields
@@ -76,6 +80,7 @@ An AI-powered system that automates the extraction of information from medical r
 ```
 
 #### Phase 3: Form Population
+
 ```python
 # Fill PA form
 1. Use pdfforms to populate widget fields
@@ -154,6 +159,7 @@ src/
 ## Implementation Plan (10-Day Sprint)
 
 ### Days 1-2: Backend Core Setup
+
 1. Set up FastAPI project structure
 2. Implement PDF extraction with Mistral OCR API (primary)
 3. Create pdfforms integration for widget detection
@@ -161,6 +167,7 @@ src/
 5. Implement chunking for large files
 
 ### Days 3-4: AI Integration & Processing
+
 1. Add Gemini Vision fallback mechanism for OCR failures
 2. Implement GPT-4 field mapping and OpenAI service
 3. Build confidence scoring system
@@ -168,6 +175,7 @@ src/
 5. Create mapping rules engine
 
 ### Day 5: Backend Finalization
+
 1. Build missing fields detection & reporting
 2. Implement caching with Redis
 3. Complete API endpoints
@@ -175,6 +183,7 @@ src/
 5. Prepare backend for deployment
 
 ### Days 6-7: Frontend Development
+
 1. Create Next.js app with upload interface
 2. Build drag-and-drop file upload component
 3. Implement processing status page
@@ -182,6 +191,7 @@ src/
 5. Create results download interface
 
 ### Days 8-9: Integration & Testing
+
 1. Connect frontend to backend APIs
 2. End-to-end testing with test cases
 3. Create golden outputs for validation
@@ -189,6 +199,7 @@ src/
 5. Performance optimization
 
 ### Day 10: Deployment & Documentation
+
 1. Deploy backend to Render
 2. Deploy frontend to Vercel
 3. Configure all environment variables
@@ -198,16 +209,19 @@ src/
 ## Testing Strategy
 
 ### Test Cases
+
 1. **Simple PA Form**: Single page, clear text
 2. **Complex Referral**: 30+ pages, mixed quality
 3. **Handwritten Notes**: Poor OCR quality test
 
 ### Golden Outputs
+
 - Create manual reference outputs for each test case
 - Use for regression testing
 - Validate with PDF diff tools
 
 ### Testing Approach
+
 ```python
 # Unit tests
 - PDF extraction functions
@@ -235,16 +249,19 @@ src/
 ## Error Handling
 
 ### OCR Failures
+
 1. Primary: Mistral OCR API extraction
 2. Fallback: Gemini Vision API
 3. Final: Mark for manual review
 
 ### Processing Errors
+
 - Graceful degradation
 - Detailed error logging
 - User-friendly error messages
 
 ### Missing Data
+
 - Comprehensive reporting
 - Confidence thresholds
 - Clear documentation of gaps
@@ -252,21 +269,25 @@ src/
 ## Performance Optimizations
 
 ### Concurrent Processing
+
 - Async page processing
 - Parallel OCR requests
 - Batch field mapping
 
 ### Caching Strategy
+
 - Redis for processed documents
 - 24-hour cache TTL
 - Cache invalidation on errors
 
 ### File Size Management
+
 - Automatic chunking for files > 20MB
 - Stream processing for large documents
 - Memory-efficient processing
 
 ### Performance Testing Tools
+
 - **Test Runner**: `backend/run_performance_tests.py` with multiple test modes
 - **Comprehensive Suite**: Single document, concurrent, memory leak testing
 - **System Monitoring**: CPU/memory tracking with psutil integration
@@ -285,17 +306,21 @@ src/
 ## Future Enhancements
 
 ### Phase 2 Features
+
 1. **Non-widget PDF Support**
+
    - Use pdfplumber for coordinate-based filling
    - Visual field detection with AI
    - Template matching for common forms
 
 2. **Form Versioning System**
+
    - Template library for different insurers
    - Version detection algorithms
    - Automatic template updates
 
 3. **Performance Improvements**
+
    - Minimize processing time
    - Batch processing for multiple patients
    - GPU acceleration for OCR
@@ -309,6 +334,7 @@ src/
 ## Configuration
 
 ### Environment Variables
+
 ```env
 # .env.local (Frontend)
 NEXT_PUBLIC_API_URL=https://your-api.onrender.com
@@ -323,6 +349,7 @@ REDIS_URL=your_redis_url
 ### Dependencies
 
 #### Backend (requirements.txt)
+
 ```
 fastapi==0.104.1
 uvicorn==0.24.0
@@ -337,6 +364,7 @@ aiofiles==23.2.1
 ```
 
 #### Frontend (package.json)
+
 ```json
 {
   "dependencies": {
@@ -354,11 +382,13 @@ aiofiles==23.2.1
 ## Deliverables
 
 1. **Source Code**
+
    - Branch: `automation-pa-filling-[your-name]`
    - Modular, well-commented code
    - Clear separation of concerns
 
 2. **Documentation**
+
    - Updated README.md with installation instructions
    - API documentation
    - Architecture diagrams

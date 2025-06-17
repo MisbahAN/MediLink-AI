@@ -38,9 +38,12 @@ class OpenAIService:
     def __init__(self):
         """Initialize OpenAI service with API configuration."""
         self.client = None
-        self.model_name = settings.OPENAI_MODEL
+        self.model_name = settings.OPENAI_MAPPING_MODEL
+        self.alternative_model = settings.OPENAI_ALTERNATIVE_MODEL
         self.api_key = settings.OPENAI_API_KEY
-        self.max_tokens = settings.MAX_TOKENS
+        self.max_tokens = settings.OPENAI_MAX_TOKENS
+        self.input_token_cost = settings.OPENAI_INPUT_TOKEN_COST
+        self.output_token_cost = settings.OPENAI_OUTPUT_TOKEN_COST
         self.timeout_seconds = settings.PROCESSING_TIMEOUT_SECONDS
         
         # Retry configuration

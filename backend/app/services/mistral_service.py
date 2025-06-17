@@ -39,7 +39,7 @@ class MistralService:
     def __init__(self):
         """Initialize Mistral OCR service with API configuration."""
         self.client = None
-        self.model_name = "mistral-ocr-latest"
+        self.model_name = settings.MISTRAL_OCR_MODEL
         self.api_key = settings.MISTRAL_API_KEY
         self.timeout_seconds = settings.PROCESSING_TIMEOUT_SECONDS
         
@@ -56,8 +56,11 @@ class MistralService:
             "very_low": 0.40    # Poor quality, recommend fallback
         }
         
-        # Cost tracking
-        self.cost_per_page = 0.001  # $0.001 per page
+        # Cost tracking and configuration
+        self.use_batch_processing = settings.MISTRAL_BATCH_PROCESSING
+        self.confidence_threshold = settings.MISTRAL_CONFIDENCE_THRESHOLD
+        self.max_pages_per_request = settings.MISTRAL_MAX_PAGES_PER_REQUEST
+        self.cost_per_page = 0.001  # $0.001 per page regular
         self.batch_cost_per_page = 0.0005  # $0.0005 per page with batch
         
         logger.info("Mistral OCR service initialized as PRIMARY extraction method")
@@ -386,6 +389,7 @@ class MistralService:
         structure_score = min(total_fields / 10, 1.0)  # Up to 10 fields = max score
         
         # Text quality indicators
+        import re
         quality_indicators = [
             bool(re.search(r'\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}', text)),  # Has dates
             bool(re.search(r'[A-Z][a-z]+\s+[A-Z][a-z]+', text)),  # Has proper names

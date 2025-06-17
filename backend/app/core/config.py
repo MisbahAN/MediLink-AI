@@ -45,11 +45,40 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: Optional[str] = None  # Fallback OCR and vision
     OPENAI_API_KEY: Optional[str] = None  # Field mapping only
     
-    # AI Model Settings
+    # Primary OCR Configuration (Mistral)
+    MISTRAL_OCR_MODEL: str = "mistral-ocr-latest"  # Optimized for document OCR
+    MISTRAL_BATCH_PROCESSING: bool = True  # 2x cost efficiency
+    MISTRAL_CONFIDENCE_THRESHOLD: float = 0.70  # Switch to fallback if below
+    MISTRAL_MAX_PAGES_PER_REQUEST: int = 100
+    
+    # Fallback OCR Configuration (Gemini)
     GEMINI_MODEL: str = "gemini-2.0-flash"
-    MISTRAL_MODEL: str = "mistral-large-latest"
-    OPENAI_MODEL: str = "gpt-4"
-    MAX_TOKENS: int = 4000
+    GEMINI_CONTEXT_WINDOW: int = 1_000_000  # 1M token context for large docs
+    GEMINI_INPUT_TOKEN_COST: float = 0.10  # Per 1M tokens
+    GEMINI_OUTPUT_TOKEN_COST: float = 0.40  # Per 1M tokens
+    GEMINI_FREE_TIER: bool = True  # Use free tier first
+    
+    # Field Mapping Configuration (OpenAI)
+    OPENAI_MAPPING_MODEL: str = "gpt-4o-mini"  # Cost-effective for structured tasks
+    OPENAI_ALTERNATIVE_MODEL: str = "gpt-4o"  # Higher reasoning if needed
+    OPENAI_INPUT_TOKEN_COST: float = 0.15  # Per 1M tokens (gpt-4o-mini)
+    OPENAI_OUTPUT_TOKEN_COST: float = 0.60  # Per 1M tokens (gpt-4o-mini)
+    OPENAI_MAX_TOKENS: int = 4000
+    
+    # Processing Pipeline Configuration
+    ENABLE_MISTRAL_PRIMARY: bool = True
+    ENABLE_GEMINI_FALLBACK: bool = True
+    ENABLE_OPENAI_MAPPING: bool = True
+    
+    # Cost Control Settings
+    MISTRAL_BUDGET_USD: float = 10.0  # Budget for primary OCR
+    GEMINI_BUDGET_USD: float = 300.0  # Budget for fallback processing
+    OPENAI_BUDGET_USD: float = 3.60  # Budget for field mapping
+    
+    # Performance Monitoring
+    TRACK_TOKEN_USAGE: bool = True
+    LOG_MODEL_PERFORMANCE: bool = True
+    COST_ALERT_THRESHOLD: float = 0.80  # Alert at 80% budget usage
     
     
     # Logging Configuration

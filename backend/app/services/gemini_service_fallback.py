@@ -44,7 +44,8 @@ class GeminiService:
         self.client = None
         self.model_name = settings.GEMINI_MODEL
         self.api_key = settings.GEMINI_API_KEY
-        self.max_tokens = settings.MAX_TOKENS
+        self.context_window = settings.GEMINI_CONTEXT_WINDOW
+        self.max_output_tokens = 8192  # Reasonable limit for output
         self.timeout_seconds = settings.PROCESSING_TIMEOUT_SECONDS
         
         # Retry configuration
@@ -295,7 +296,7 @@ class GeminiService:
                 [prompt, image_data],
                 safety_settings=self.safety_settings,
                 generation_config={
-                    "max_output_tokens": self.max_tokens,
+                    "max_output_tokens": self.max_output_tokens,
                     "temperature": 0.1,  # Low temperature for consistent extraction
                 }
             )
