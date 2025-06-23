@@ -1,0 +1,2012 @@
+[
+  {
+    "field_name": "CB1",
+    "field_value": "",
+    "field_label": "Start of treatment",
+    "is_signed": null
+  },
+  {
+    "field_name": "T2",
+    "field_value": "",
+    "field_label": "Start date: (MM)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T3",
+    "field_value": "",
+    "field_label": "Start date: (DD)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T4",
+    "field_value": "",
+    "field_label": "Start date: (YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB5",
+    "field_value": "",
+    "field_label": "Continuation of therapy",
+    "is_signed": null
+  },
+  {
+    "field_name": "T6",
+    "field_value": "",
+    "field_label": "Date of last treatment: (MM)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T7",
+    "field_value": "",
+    "field_label": "Date of last treatment: (DD)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T8",
+    "field_value": "",
+    "field_label": "Date of last treatment: (YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T9",
+    "field_value": "",
+    "field_label": "Precertification Requested By:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T10",
+    "field_value": "",
+    "field_label": "Phone:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T11",
+    "field_value": "",
+    "field_label": "Fax:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T12",
+    "field_value": "",
+    "field_label": "Patient First Name",
+    "is_signed": null
+  },
+  {
+    "field_name": "T13",
+    "field_value": "",
+    "field_label": "Patient Last Name",
+    "is_signed": null
+  },
+  {
+    "field_name": "T14",
+    "field_value": "",
+    "field_label": "Patient DOB (MM/DD/YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T15",
+    "field_value": "",
+    "field_label": "Address:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T16",
+    "field_value": "",
+    "field_label": "City:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T17",
+    "field_value": "",
+    "field_label": "State:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T18",
+    "field_value": "",
+    "field_label": "ZIP:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T19",
+    "field_value": "",
+    "field_label": "Patient Phone",
+    "is_signed": null
+  },
+  {
+    "field_name": "T20",
+    "field_value": "",
+    "field_label": "Work Phone:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T21",
+    "field_value": "",
+    "field_label": "Cell Phone:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T22",
+    "field_value": "",
+    "field_label": "E-mail:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T24",
+    "field_value": "",
+    "field_label": "lbs",
+    "is_signed": null
+  },
+  {
+    "field_name": "T25",
+    "field_value": "",
+    "field_label": "kgs",
+    "is_signed": null
+  },
+  {
+    "field_name": "T26",
+    "field_value": "",
+    "field_label": "inches",
+    "is_signed": null
+  },
+  {
+    "field_name": "T27",
+    "field_value": "",
+    "field_label": "cms",
+    "is_signed": null
+  },
+  {
+    "field_name": "T23",
+    "field_value": "",
+    "field_label": "Allergies:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T28",
+    "field_value": "",
+    "field_label": "Member ID #:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T29",
+    "field_value": "",
+    "field_label": "Group #:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T30",
+    "field_value": "",
+    "field_label": "Insured:",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB31",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB32",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "T33",
+    "field_value": "",
+    "field_label": "If yes, provide ID#:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T34",
+    "field_value": "",
+    "field_label": "Carrier Name:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T35",
+    "field_value": "",
+    "field_label": "Insured:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T42",
+    "field_value": "",
+    "field_label": "First Name:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T43",
+    "field_value": "",
+    "field_label": "Last Name:",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB44",
+    "field_value": "",
+    "field_label": "M.D.",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB45",
+    "field_value": "",
+    "field_label": "D.O.",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB46",
+    "field_value": "",
+    "field_label": "N.P.",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB47",
+    "field_value": "",
+    "field_label": "P.A.",
+    "is_signed": null
+  },
+  {
+    "field_name": "T48",
+    "field_value": "",
+    "field_label": "Address:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T49",
+    "field_value": "",
+    "field_label": "City:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T50",
+    "field_value": "",
+    "field_label": "State:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T51",
+    "field_value": "",
+    "field_label": "ZIP:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T52",
+    "field_value": "",
+    "field_label": "Phone:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T53",
+    "field_value": "",
+    "field_label": "Fax:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T54",
+    "field_value": "",
+    "field_label": "St Lic #:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T55",
+    "field_value": "",
+    "field_label": "NPI #:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T56",
+    "field_value": "",
+    "field_label": "DEA #:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T57",
+    "field_value": "",
+    "field_label": "UPIN:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T58.0",
+    "field_value": "",
+    "field_label": "Provider Email:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T58.1",
+    "field_value": "",
+    "field_label": "Office Contact Name:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T59",
+    "field_value": "",
+    "field_label": "Phone:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin CB.1",
+    "field_value": "",
+    "field_label": "Self-administered",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin CB.2",
+    "field_value": "",
+    "field_label": "Physician’s Office",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin CB.3",
+    "field_value": "",
+    "field_label": "Home",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin CB.4",
+    "field_value": "",
+    "field_label": "Outpatient Infusion Center",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.5",
+    "field_value": "",
+    "field_label": "Name:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin CB.7",
+    "field_value": "",
+    "field_label": "Home Infusion Center",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.6",
+    "field_value": "",
+    "field_label": "Phone:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.8",
+    "field_value": "",
+    "field_label": "Agency Name:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin CB.10",
+    "field_value": "",
+    "field_label": "Administration code(s)",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.9",
+    "field_value": "",
+    "field_label": "CPT:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.11A",
+    "field_value": "",
+    "field_label": "Address:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.13",
+    "field_value": "",
+    "field_label": "City:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.14",
+    "field_value": "",
+    "field_label": "State:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.15",
+    "field_value": "",
+    "field_label": "ZIP:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.16",
+    "field_value": "",
+    "field_label": "Phone:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.17A",
+    "field_value": "",
+    "field_label": "Fax:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.18",
+    "field_value": "",
+    "field_label": "TIN:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.19",
+    "field_value": "",
+    "field_label": "PIN:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.20",
+    "field_value": "",
+    "field_label": "NPI:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin CB.21",
+    "field_value": "",
+    "field_label": "Outpatient Dialysis Center",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin CB.22",
+    "field_value": "",
+    "field_label": "Physician’s Office",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin CB.23.0.0",
+    "field_value": "",
+    "field_label": "Retail Pharmacy",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin CB.24.0.0",
+    "field_value": "",
+    "field_label": "Specialty Pharmacy",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin CB.25",
+    "field_value": "",
+    "field_label": "Mail Order",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin CB.26",
+    "field_value": "",
+    "field_label": "Other:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.27",
+    "field_value": "",
+    "field_label": "Other:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.28",
+    "field_value": "",
+    "field_label": "Name:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.29a",
+    "field_value": "",
+    "field_label": "Address:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.30a",
+    "field_value": "",
+    "field_label": "City:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.31",
+    "field_value": "",
+    "field_label": "State:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.32",
+    "field_value": "",
+    "field_label": "ZIP:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.33",
+    "field_value": "",
+    "field_label": "Phone:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.34",
+    "field_value": "",
+    "field_label": "Fax:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.35",
+    "field_value": "",
+    "field_label": "TIN:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.36",
+    "field_value": "",
+    "field_label": "PIN:",
+    "is_signed": null
+  },
+  {
+    "field_name": "Provider Admin T.37",
+    "field_value": "",
+    "field_label": "NPI:",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB60",
+    "field_value": "",
+    "field_label": "Riabni (rituximab-arrx)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB61",
+    "field_value": "",
+    "field_label": "Rituxan (rituximab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB62",
+    "field_value": "",
+    "field_label": "Ruxience (rituximab-pvvr)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB63",
+    "field_value": "",
+    "field_label": "Truxima (rituximab-abbs)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T64",
+    "field_value": "",
+    "field_label": "Dose:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T65",
+    "field_value": "",
+    "field_label": "Directions for Use:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T66",
+    "field_value": "",
+    "field_label": "HCPCS Code:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T67",
+    "field_value": "",
+    "field_label": "Primary ICD Code:",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB68",
+    "field_value": "",
+    "field_label": "Other ICD Code:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T69",
+    "field_value": "",
+    "field_label": "Other ICD Code:",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB70",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB71",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB72",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB73",
+    "field_value": "",
+    "field_label": "Ruxience (rituximab-pvvr)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB74",
+    "field_value": "",
+    "field_label": "Truxima (rituximab-abbs)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T75",
+    "field_value": "",
+    "field_label": "When was the member’s trial and failure of the preferred drug?",
+    "is_signed": null
+  },
+  {
+    "field_name": "T76",
+    "field_value": "",
+    "field_label": "Please describe the nature of the failure of the preferred drug",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB77",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB78",
+    "field_value": "",
+    "field_label": "Ruxience (rituximab-pvvr)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB79",
+    "field_value": "",
+    "field_label": "Truxima (rituximab-abbs)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T80",
+    "field_value": "",
+    "field_label": "When was the member’s adverse reaction to the preferred drug?",
+    "is_signed": null
+  },
+  {
+    "field_name": "T81",
+    "field_value": "",
+    "field_label": "Please describe the nature of the adverse reaction to the preferred drug",
+    "is_signed": null
+  },
+  {
+    "field_name": "T84",
+    "field_value": "",
+    "field_label": "Please explain if there are any contraindications or other medical reason(s) that the patient cannot use any of the following preferred biosimilar products when indicated for the patient’s diagnosis?",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB82",
+    "field_value": "",
+    "field_label": "Ruxience (rituximab-pvvr)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB83",
+    "field_value": "",
+    "field_label": "Truxima (rituximab-abbs)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T12",
+    "field_value": "",
+    "field_label": "Patient First Name",
+    "is_signed": null
+  },
+  {
+    "field_name": "T13",
+    "field_value": "",
+    "field_label": "Patient Last Name",
+    "is_signed": null
+  },
+  {
+    "field_name": "T19",
+    "field_value": "",
+    "field_label": "Patient Phone",
+    "is_signed": null
+  },
+  {
+    "field_name": "T14",
+    "field_value": "",
+    "field_label": "Patient DOB (MM/DD/YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB86",
+    "field_value": "",
+    "field_label": "Inflectra (infliximab-dyyb)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB87",
+    "field_value": "",
+    "field_label": "Renflexis (infliximab-abda)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB88",
+    "field_value": "",
+    "field_label": "Simponi Aria (golimumab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T89",
+    "field_value": "",
+    "field_label": "When was the member’s trial and failure of the preferred drug?",
+    "is_signed": null
+  },
+  {
+    "field_name": "T90",
+    "field_value": "",
+    "field_label": "Please describe the nature of the failure of the preferred drug",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB85",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB92",
+    "field_value": "",
+    "field_label": "Inflectra (infliximab-dyyb)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB93",
+    "field_value": "",
+    "field_label": "Renflexis (infliximab-abda)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB94",
+    "field_value": "",
+    "field_label": "Simponi Aria (golimumab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T95",
+    "field_value": "",
+    "field_label": "When was the member’s adverse reaction to the preferred drug?",
+    "is_signed": null
+  },
+  {
+    "field_name": "T96a",
+    "field_value": "",
+    "field_label": "Please describe the nature of the adverse reaction to the preferred drug",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB91",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB98a",
+    "field_value": "",
+    "field_label": "Enbrel (etanercept)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB99a",
+    "field_value": "",
+    "field_label": "Humira (adalimumab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB100a",
+    "field_value": "",
+    "field_label": "Idacio (adalimumab-aacf)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB101a",
+    "field_value": "",
+    "field_label": "Rinvoq (upadacitinib)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB102a",
+    "field_value": "",
+    "field_label": "Tyenne SC (tocilizumab-aazg)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB103a",
+    "field_value": "",
+    "field_label": "Xeljanz/Xeljanz XR (tofacitinib)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T104",
+    "field_value": "",
+    "field_label": "When was the member’s trial and failure of the preferred drug?",
+    "is_signed": null
+  },
+  {
+    "field_name": "T105",
+    "field_value": "",
+    "field_label": "Please describe the nature of the failure of the preferred drug",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB97",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB107z",
+    "field_value": "",
+    "field_label": "Enbrel (etanercept)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB108z",
+    "field_value": "",
+    "field_label": "Humira (adalimumab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB109z",
+    "field_value": "",
+    "field_label": "Idacio (adalimumab-aacf)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB110z",
+    "field_value": "",
+    "field_label": "Rinvoq (upadacitinib)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB111z",
+    "field_value": "",
+    "field_label": "Tyenne SC (tocilizumab-aazg)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB112z",
+    "field_value": "",
+    "field_label": "Xeljanz/Xeljanz XR (tofacitinib)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T113",
+    "field_value": "",
+    "field_label": "When was the member’s adverse reaction to the preferred drug?",
+    "is_signed": null
+  },
+  {
+    "field_name": "T114",
+    "field_value": "",
+    "field_label": "Please describe the nature of the adverse reaction to the preferred drug",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB106z",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "T118",
+    "field_value": "",
+    "field_label": "Please explain if there are any contraindications or other medical reason(s) that the patient cannot use any of the following preferred products when indicated for the patient’s diagnosis?",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB115z",
+    "field_value": "",
+    "field_label": "Inflectra (infliximab-dyyb)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB116z",
+    "field_value": "",
+    "field_label": "Renflexis (infliximab-abda)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB117z",
+    "field_value": "",
+    "field_label": "Simponi Aria (golimumab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T125",
+    "field_value": "",
+    "field_label": "Please explain if there are contraindications or any other medical reason(s) that the patient cannot use any of the following preferred products when indicated for the patient’s diagnosis?",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB119z",
+    "field_value": "",
+    "field_label": "Enbrel (etanercept)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB120z",
+    "field_value": "",
+    "field_label": "Humira (adalimumab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB121z",
+    "field_value": "",
+    "field_label": "Idacio (adalimumab-aacf)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB122z",
+    "field_value": "",
+    "field_label": "Rinvoq (upadacitinib)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB123z",
+    "field_value": "",
+    "field_label": "Tyenne SC (tocilizumab-aazg)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB124z",
+    "field_value": "",
+    "field_label": "Xeljanz/Xeljanz XR (tofacitinib)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB96.4.0",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB98",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB99.0",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB100.0",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB101.0",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB102.0",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB103",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB104",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB104a",
+    "field_value": "",
+    "field_label": "Wegener granulomatosis",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB104b",
+    "field_value": "",
+    "field_label": "Churg-Strauss syndrome",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB104c",
+    "field_value": "",
+    "field_label": "microscopic polyangiitis",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB104d",
+    "field_value": "",
+    "field_label": "pauci-immune glomerulonephritis",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB105",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB106",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB106a",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB107",
+    "field_value": "",
+    "field_label": "pemphigus vulgaris",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB108",
+    "field_value": "",
+    "field_label": "pemphigus folliaceus",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB109",
+    "field_value": "",
+    "field_label": "bullous pemphigoid",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB110",
+    "field_value": "",
+    "field_label": "cicatricial pemphigoid",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB111",
+    "field_value": "",
+    "field_label": "epidermolysis bullosa acquisita",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB112",
+    "field_value": "",
+    "field_label": "paraneoplastic pemphigus",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB113",
+    "field_value": "",
+    "field_label": "None of the above",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB106b",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB114",
+    "field_value": "",
+    "field_label": "AIDS-related B-cell lymphoma",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB115",
+    "field_value": "",
+    "field_label": "Burkitt lymphoma",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB116",
+    "field_value": "",
+    "field_label": "Diffuse large B-cell lymphoma",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB117",
+    "field_value": "",
+    "field_label": "Follicular lymphoma",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB118",
+    "field_value": "",
+    "field_label": "Gastric MALT lymphoma",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB119",
+    "field_value": "",
+    "field_label": "High-grade B-Cell lymphoma",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB120",
+    "field_value": "",
+    "field_label": "Mantle cell lymphoma",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB121",
+    "field_value": "",
+    "field_label": "Nodal marginal zone lymphoma",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB122",
+    "field_value": "",
+    "field_label": "Nongastric MALT lymphoma",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB123",
+    "field_value": "",
+    "field_label": "Primary cutaneous B-cell lymphomas",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB124",
+    "field_value": "",
+    "field_label": "Splenic marginal zone lymphoma",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB125",
+    "field_value": "",
+    "field_label": "Other:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T126",
+    "field_value": "",
+    "field_label": "Other:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T12",
+    "field_value": "",
+    "field_label": "Patient First Name",
+    "is_signed": null
+  },
+  {
+    "field_name": "T13",
+    "field_value": "",
+    "field_label": "Patient Last Name",
+    "is_signed": null
+  },
+  {
+    "field_name": "T19",
+    "field_value": "",
+    "field_label": "Patient Phone",
+    "is_signed": null
+  },
+  {
+    "field_name": "T14",
+    "field_value": "",
+    "field_label": "Patient DOB (MM/DD/YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB127",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB128",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB129",
+    "field_value": "",
+    "field_label": "leptomeningeal metastases from lymphoma",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB130",
+    "field_value": "",
+    "field_label": "primary CNS lymphoma",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB131",
+    "field_value": "",
+    "field_label": "none of the above",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB132",
+    "field_value": "",
+    "field_label": "chronic lymphocytic leukemia (CLL)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB133",
+    "field_value": "",
+    "field_label": "small lymphocytic leukemia",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB134",
+    "field_value": "",
+    "field_label": "none of the above",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB135",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB136",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB139",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB140",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB144",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB145",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB141",
+    "field_value": "",
+    "field_label": "relapsed hairy cell leukemia",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB142",
+    "field_value": "",
+    "field_label": "refractory hairy cell leukemia",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB143",
+    "field_value": "",
+    "field_label": "none of the above",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB137",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB146",
+    "field_value": "",
+    "field_label": "heart transplant recipient",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB147",
+    "field_value": "",
+    "field_label": "other solid organ transplant recipient",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB138",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB148",
+    "field_value": "",
+    "field_label": "Bavencio (avelumab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB149",
+    "field_value": "",
+    "field_label": "Imfinzi (durvalumab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB150",
+    "field_value": "",
+    "field_label": "Keytruda (pembrolizumab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB151",
+    "field_value": "",
+    "field_label": "Opdivo (nivolumab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB152",
+    "field_value": "",
+    "field_label": "Tecentriq (atezolizumab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB153",
+    "field_value": "",
+    "field_label": "Yervoy (ipilimumab)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB154",
+    "field_value": "",
+    "field_label": "Other:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T155",
+    "field_value": "",
+    "field_label": "Other:",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB156",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB158",
+    "field_value": "",
+    "field_label": "refractory immune thrombocytopenic purpura",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB159",
+    "field_value": "",
+    "field_label": "idiopathic thrombocytopenic purpura (ITP)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB157",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB160",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB161",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB162",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB163",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB164",
+    "field_value": "",
+    "field_label": "Relapsing-remitting MS (RRMS)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB165",
+    "field_value": "",
+    "field_label": "Secondary-progressive MS (SPMS)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB166",
+    "field_value": "",
+    "field_label": "Primary-progressive MS (PPMS)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB167",
+    "field_value": "",
+    "field_label": "Progressive-relapsing MS (PRMS)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB168",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB169",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB170",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB172",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB173",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB171",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB174",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB175",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB176",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB177",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB178",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB179",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB180",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "T189",
+    "field_value": "",
+    "field_label": "Medication:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T190",
+    "field_value": "",
+    "field_label": "Date: (MM)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T191",
+    "field_value": "",
+    "field_label": "Date: (DD)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T192",
+    "field_value": "",
+    "field_label": "Date: (YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T193",
+    "field_value": "",
+    "field_label": "Date: (MM)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T194",
+    "field_value": "",
+    "field_label": "Date: (DD)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T195",
+    "field_value": "",
+    "field_label": "Date: (YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T196",
+    "field_value": "",
+    "field_label": "Medication:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T197",
+    "field_value": "",
+    "field_label": "Date: (MM)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T198",
+    "field_value": "",
+    "field_label": "Date: (DD)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T199",
+    "field_value": "",
+    "field_label": "Date: (YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T200",
+    "field_value": "",
+    "field_label": "Date: (MM)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T201",
+    "field_value": "",
+    "field_label": "Date: (DD)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T202",
+    "field_value": "",
+    "field_label": "Date: (YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB181",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB203",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB204",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB205",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB206",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "T12",
+    "field_value": "",
+    "field_label": "Patient First Name",
+    "is_signed": null
+  },
+  {
+    "field_name": "T13",
+    "field_value": "",
+    "field_label": "Patient Last Name",
+    "is_signed": null
+  },
+  {
+    "field_name": "T19",
+    "field_value": "",
+    "field_label": "Patient Phone",
+    "is_signed": null
+  },
+  {
+    "field_name": "T14",
+    "field_value": "",
+    "field_label": "Patient DOB (MM/DD/YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB207",
+    "field_value": "",
+    "field_label": "Mild",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB208",
+    "field_value": "",
+    "field_label": "Moderate",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB209",
+    "field_value": "",
+    "field_label": "Severe",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB210",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB211",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB212",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB213",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB214",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB216",
+    "field_value": "",
+    "field_label": "ineffective",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB217",
+    "field_value": "",
+    "field_label": "not tolerated",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB218",
+    "field_value": "",
+    "field_label": "contraindicated",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB215",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB223",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB225",
+    "field_value": "",
+    "field_label": "azathioprine",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB226",
+    "field_value": "",
+    "field_label": "cyclosporine",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB227",
+    "field_value": "",
+    "field_label": "hydroxychloroquine",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB228",
+    "field_value": "",
+    "field_label": "leflunomide",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB229",
+    "field_value": "",
+    "field_label": "sulfasalazine",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB224",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB281",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB282",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB283",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "T285",
+    "field_value": "",
+    "field_label": "Medication:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T286",
+    "field_value": "",
+    "field_label": "Date: (MM)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T287",
+    "field_value": "",
+    "field_label": "Date: (DD)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T288",
+    "field_value": "",
+    "field_label": "Date: (YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T289",
+    "field_value": "",
+    "field_label": "Date: (MM)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T290",
+    "field_value": "",
+    "field_label": "Date: (DD)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T291",
+    "field_value": "",
+    "field_label": "Date: (YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T292",
+    "field_value": "",
+    "field_label": "Medication:",
+    "is_signed": null
+  },
+  {
+    "field_name": "T293",
+    "field_value": "",
+    "field_label": "Date: (MM)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T294",
+    "field_value": "",
+    "field_label": "Date: (DD)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T295",
+    "field_value": "",
+    "field_label": "Date: (YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T296",
+    "field_value": "",
+    "field_label": "Date: (MM)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T297",
+    "field_value": "",
+    "field_label": "Date: (DD)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T298",
+    "field_value": "",
+    "field_label": "Date: (YYYY)",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB284",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB299",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB300",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB301",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB302",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB303",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB304",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "T305",
+    "field_value": "",
+    "field_label": "Please indicate the length of time on Rituxan (rituximab):",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB310",
+    "field_value": "",
+    "field_label": "Mild",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB311",
+    "field_value": "",
+    "field_label": "Moderate",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB312",
+    "field_value": "",
+    "field_label": "Severe",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB306",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB307",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB308",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB309",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB313",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB314",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB315",
+    "field_value": "",
+    "field_label": "Yes",
+    "is_signed": null
+  },
+  {
+    "field_name": "CB316",
+    "field_value": "",
+    "field_label": "No",
+    "is_signed": null
+  },
+  {
+    "field_name": "T317",
+    "field_value": "",
+    "field_label": "Date: (MM)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T318",
+    "field_value": "",
+    "field_label": "Date: (DD)",
+    "is_signed": null
+  },
+  {
+    "field_name": "T319",
+    "field_value": "",
+    "field_label": "Date: (YYYY)",
+    "is_signed": null
+  }
+]

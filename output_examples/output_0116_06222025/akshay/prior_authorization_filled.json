@@ -1,0 +1,851 @@
+{
+  "populated_widgets": [
+    {
+      "field_name": "Indicate CB.1",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "The request is for initiation of therapy indicating start of treatment."
+    },
+    {
+      "field_name": "Indicate T.2",
+      "field_type": "text",
+      "suggested_value": "05",
+      "confidence": 0.9,
+      "reasoning": "Date of request provided as 05/30/2023 in acknowledgement section."
+    },
+    {
+      "field_name": "Indicate T.3",
+      "field_type": "text",
+      "suggested_value": "30",
+      "confidence": 0.9,
+      "reasoning": "Date of request provided as 05/30/2023 in acknowledgement section."
+    },
+    {
+      "field_name": "Indicate T.4",
+      "field_type": "text",
+      "suggested_value": "2023",
+      "confidence": 0.9,
+      "reasoning": "Date of request provided as 05/30/2023 in acknowledgement section."
+    },
+    {
+      "field_name": "Indicate CB.5",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.85,
+      "reasoning": "Continuation of therapy is not indicated since initiation is selected."
+    },
+    {
+      "field_name": "Indicate T.6",
+      "field_type": "text",
+      "suggested_value": null,
+      "confidence": 0.5,
+      "reasoning": "Last treatment date not provided in the form."
+    },
+    {
+      "field_name": "Indicate T.7",
+      "field_type": "text",
+      "suggested_value": null,
+      "confidence": 0.5,
+      "reasoning": "Last treatment date not provided in the form."
+    },
+    {
+      "field_name": "Indicate T.8",
+      "field_type": "text",
+      "suggested_value": null,
+      "confidence": 0.5,
+      "reasoning": "Last treatment date not provided in the form."
+    },
+    {
+      "field_name": "Request by T",
+      "field_type": "text",
+      "suggested_value": "Timothy Adam, MD",
+      "confidence": 0.95,
+      "reasoning": "Specified as the requester in the 'Contact Information' section."
+    },
+    {
+      "field_name": "Phone T",
+      "field_type": "text",
+      "suggested_value": "203-818-3060",
+      "confidence": 0.95,
+      "reasoning": "Listed under 'Contact Information' section for requester."
+    },
+    {
+      "field_name": "Fax T",
+      "field_type": "text",
+      "suggested_value": "203-818-3061",
+      "confidence": 0.95,
+      "reasoning": "Listed under 'Contact Information' section for requester."
+    },
+    {
+      "field_name": "T11",
+      "field_type": "text",
+      "suggested_value": "Akshay",
+      "confidence": 0.98,
+      "reasoning": "Found in patient information as the first name."
+    },
+    {
+      "field_name": "T12",
+      "field_type": "text",
+      "suggested_value": "Chaudhari",
+      "confidence": 0.98,
+      "reasoning": "Found in patient information as the last name."
+    },
+    {
+      "field_name": "T13",
+      "field_type": "text",
+      "suggested_value": "02/17/1987",
+      "confidence": 0.98,
+      "reasoning": "Date of birth extracted from patient information."
+    },
+    {
+      "field_name": "T14",
+      "field_type": "text",
+      "suggested_value": "1460 El Camino Real",
+      "confidence": 0.98,
+      "reasoning": "Found in address section of patient information."
+    },
+    {
+      "field_name": "T15",
+      "field_type": "text",
+      "suggested_value": "Arlington",
+      "confidence": 0.98,
+      "reasoning": "Found in address section of patient information, city."
+    },
+    {
+      "field_name": "T16",
+      "field_type": "text",
+      "suggested_value": "VA",
+      "confidence": 0.98,
+      "reasoning": "Found in address section of patient information, state."
+    },
+    {
+      "field_name": "T17",
+      "field_type": "text",
+      "suggested_value": "22407",
+      "confidence": 0.98,
+      "reasoning": "Found in address section of patient information, ZIP code."
+    },
+    {
+      "field_name": "T18",
+      "field_type": "text",
+      "suggested_value": "570-599-6973",
+      "confidence": 0.98,
+      "reasoning": "Home phone number listed in the patient information section."
+    },
+    {
+      "field_name": "T19",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.95,
+      "reasoning": "Work phone not listed, explicitly marked as 'None'."
+    },
+    {
+      "field_name": "T20",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.95,
+      "reasoning": "Cell phone not listed, explicitly marked as 'None'."
+    },
+    {
+      "field_name": "T21",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "Email is marked as 'None' in the patient information section."
+    },
+    {
+      "field_name": "T21B",
+      "field_type": "text",
+      "suggested_value": "190",
+      "confidence": 0.95,
+      "reasoning": "Weight extracted from patient information."
+    },
+    {
+      "field_name": "T21C",
+      "field_type": "text",
+      "suggested_value": null,
+      "confidence": 0.5,
+      "reasoning": "Weight in kgs not provided; only lbs available."
+    },
+    {
+      "field_name": "T21D",
+      "field_type": "text",
+      "suggested_value": "73",
+      "confidence": 0.95,
+      "reasoning": "Height extracted from patient information."
+    },
+    {
+      "field_name": "T21E",
+      "field_type": "text",
+      "suggested_value": null,
+      "confidence": 0.5,
+      "reasoning": "Height in cms not provided; only inches available."
+    },
+    {
+      "field_name": "T21F",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.95,
+      "reasoning": "No allergies reported in patient information."
+    },
+    {
+      "field_name": "Insurance Info T.1",
+      "field_type": "text",
+      "suggested_value": "350410732018",
+      "confidence": 0.95,
+      "reasoning": "Member ID captured under insurance information."
+    },
+    {
+      "field_name": "Insurance Info CB.4",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Patient does not have other coverage, marked 'No'."
+    },
+    {
+      "field_name": "Insurance Info CB.5",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "Patient does not have other coverage, marked 'No'."
+    },
+    {
+      "field_name": "Insurance Info T.2",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "Group number is specified as 'None'."
+    },
+    {
+      "field_name": "Insurance Info T.6",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No secondary ID provided as other coverage is 'No'."
+    },
+    {
+      "field_name": "Insurance Info T.7",
+      "field_type": "text",
+      "suggested_value": "Aetna Better Health of Virginia",
+      "confidence": 0.95,
+      "reasoning": "Carrier name specified in insurance section."
+    },
+    {
+      "field_name": "Insurance Info T.3",
+      "field_type": "text",
+      "suggested_value": "Akshay Chaudhari",
+      "confidence": 0.95,
+      "reasoning": "Insured is same as patient name."
+    },
+    {
+      "field_name": "Insurance Info T.8",
+      "field_type": "text",
+      "suggested_value": "Akshay Chaudhari",
+      "confidence": 0.95,
+      "reasoning": "Insured is same as patient name."
+    },
+    {
+      "field_name": "Insurance Info CB.9",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Medicare is marked as 'No' in insurance section."
+    },
+    {
+      "field_name": "Insurance Info CB.10",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "Medicare is marked as 'No' in insurance section."
+    },
+    {
+      "field_name": "Insurance Info T.11",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No Medicare ID provided as it is marked 'No'."
+    },
+    {
+      "field_name": "Insurance Info CB.12",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Medicaid is marked as 'No' in insurance section."
+    },
+    {
+      "field_name": "Insurance Info CB.13",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "Medicaid is marked as 'No' in insurance section."
+    },
+    {
+      "field_name": "Insurance Info T.14",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No Medicaid ID provided as it is marked 'No'."
+    },
+    {
+      "field_name": "Presc Info T.1",
+      "field_type": "text",
+      "suggested_value": "Timothy",
+      "confidence": 0.95,
+      "reasoning": "Prescriber's first name found in prescriber information."
+    },
+    {
+      "field_name": "Presc Info T.7",
+      "field_type": "text",
+      "suggested_value": "2755 College Ave Ste. 100",
+      "confidence": 0.95,
+      "reasoning": "Prescriber's address listed in form."
+    },
+    {
+      "field_name": "Presc Info T.11",
+      "field_type": "text",
+      "suggested_value": "203-818-3060",
+      "confidence": 0.95,
+      "reasoning": "Prescriber's phone number matched in prescriber info."
+    },
+    {
+      "field_name": "Presc Info T.12",
+      "field_type": "text",
+      "suggested_value": "203-818-3061",
+      "confidence": 0.95,
+      "reasoning": "Prescriber's fax number matched in prescriber info."
+    },
+    {
+      "field_name": "Presc Info T.17",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "Provider's email is marked as 'None'."
+    },
+    {
+      "field_name": "Presc Info T.2",
+      "field_type": "text",
+      "suggested_value": "Adam",
+      "confidence": 0.95,
+      "reasoning": "Prescriber's last name matched in prescriber info."
+    },
+    {
+      "field_name": "Presc Info CB.3",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "Prescriber is classified as an M.D."
+    },
+    {
+      "field_name": "Presc Info CB.4",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Prescriber is not a D.O."
+    },
+    {
+      "field_name": "Presc Info CB.5",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Prescriber is not an N.P."
+    },
+    {
+      "field_name": "Presc Info CB.6",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Prescriber is not a P.A."
+    },
+    {
+      "field_name": "Presc Info T.8",
+      "field_type": "text",
+      "suggested_value": "Leesburg",
+      "confidence": 0.95,
+      "reasoning": "City matched for prescriber's address."
+    },
+    {
+      "field_name": "Presc Info T.9",
+      "field_type": "text",
+      "suggested_value": "VA",
+      "confidence": 0.95,
+      "reasoning": "State matched for prescriber's address."
+    },
+    {
+      "field_name": "Presc Info T.10",
+      "field_type": "text",
+      "suggested_value": "20176",
+      "confidence": 0.95,
+      "reasoning": "ZIP code matched for prescriber's address."
+    },
+    {
+      "field_name": "Presc Info T.13",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "State license is marked as 'None'."
+    },
+    {
+      "field_name": "Presc Info T.14",
+      "field_type": "text",
+      "suggested_value": "1321124163",
+      "confidence": 0.95,
+      "reasoning": "NPI number found under prescriber information."
+    },
+    {
+      "field_name": "Presc Info T.15",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "DEA number is marked as 'None'."
+    },
+    {
+      "field_name": "Presc Info T.16",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "UPIN not provided, marked as 'None'."
+    },
+    {
+      "field_name": "Presc Info T.18",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No office contact name listed, marked as 'None'."
+    },
+    {
+      "field_name": "Presc Info T.19",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No additional contact phone listed, marked as 'None'."
+    },
+    {
+      "field_name": "Presc Info CB.20",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "Specialty marked as Gastroenterologist."
+    },
+    {
+      "field_name": "Presc Info CB.21",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Specialty field 'Other' is not selected."
+    },
+    {
+      "field_name": "Presc Info T.23",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "Specialty 'Other' specification is 'None'."
+    },
+    {
+      "field_name": "Provider Admin CB.1",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.95,
+      "reasoning": "Administration is not self-administered, it is in physician's office."
+    },
+    {
+      "field_name": "Provider Admin CB.2",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.95,
+      "reasoning": "Place of Administration specified as 'Physician's Office'."
+    },
+    {
+      "field_name": "Provider Admin CB.3",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Other options for administration location are unchecked."
+    },
+    {
+      "field_name": "Provider Admin T.4",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No phone provided for outpatient infusion center."
+    },
+    {
+      "field_name": "Provider Admin T.5",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No center name provided for administration."
+    },
+    {
+      "field_name": "Provider Admin CB.6",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Home Infusion Center option not selected."
+    },
+    {
+      "field_name": "Provider Admin T.7",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No phone provided for home infusion center."
+    },
+    {
+      "field_name": "Provider Admin T.8",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No agency name provided for home infusion."
+    },
+    {
+      "field_name": "Provider Admin CB.9.0",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Administration codes not listed or provided."
+    },
+    {
+      "field_name": "Provider Admin T.10.0.0",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No CPT codes listed in the form."
+    },
+    {
+      "field_name": "Provider Admin T.10.1.0",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No administration address provided."
+    },
+    {
+      "field_name": "Provider Admin CB.11",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.95,
+      "reasoning": "Patient administration location is the physician's office."
+    },
+    {
+      "field_name": "Provider Admin CB.12",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Retail Pharmacy option not selected."
+    },
+    {
+      "field_name": "Provider Admin CB.13",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Specialty Pharmacy option not selected."
+    },
+    {
+      "field_name": "Provider Admin CB.14",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Other administration locations are not selected."
+    },
+    {
+      "field_name": "Provider Admin T.17.0",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "Provider's name for administration not provided."
+    },
+    {
+      "field_name": "Provider Admin T.17.1",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No address provided for administration."
+    },
+    {
+      "field_name": "Provider Admin T.18",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No phone provided for administration point."
+    },
+    {
+      "field_name": "Provider Admin T.19",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No fax provided for administration point."
+    },
+    {
+      "field_name": "Provider Admin T.20",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "TIN not listed."
+    },
+    {
+      "field_name": "Provider Admin T.21",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "PIN not listed."
+    },
+    {
+      "field_name": "Product T.1",
+      "field_type": "text",
+      "suggested_value": "Induction Phase: 600mg IV; Maintenance Phase: 360mg SQ",
+      "confidence": 0.95,
+      "reasoning": "Dosage schedule provided in product information section."
+    },
+    {
+      "field_name": "Product T.2",
+      "field_type": "text",
+      "suggested_value": "Induction Phase: 0, 4, 8 weeks; Maintenance Phase: every 8 weeks",
+      "confidence": 0.95,
+      "reasoning": "Frequency details provided in product section."
+    },
+    {
+      "field_name": "Diagnosis T.1",
+      "field_type": "text",
+      "suggested_value": "K50.111",
+      "confidence": 0.95,
+      "reasoning": "Primary ICD Code listed for diagnosis section."
+    },
+    {
+      "field_name": "Diagnosis T.2",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No secondary ICD code provided."
+    },
+    {
+      "field_name": "Diagnosis T.3",
+      "field_type": "text",
+      "suggested_value": "None",
+      "confidence": 0.9,
+      "reasoning": "No other ICD code provided."
+    },
+    {
+      "field_name": "Clinical CB.0",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "Confirmed diagnosis of Crohn's disease."
+    },
+    {
+      "field_name": "Clinical CB.1",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "No alternative indication for 'No' response."
+    },
+    {
+      "field_name": "Clinical CB.2",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "Prescribing in consultation confirmed with gastroenterologist."
+    },
+    {
+      "field_name": "Clinical CB.3",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Prescribing not stated outside gastroenterologist consultation."
+    },
+    {
+      "field_name": "Clinical CB.4",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "Request for initiation of therapy with IV loading dose confirmed."
+    },
+    {
+      "field_name": "Clinical CB.5",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Patient not currently receiving the specified drug."
+    },
+    {
+      "field_name": "Clinical CB.6",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "TB test conducted using IGRA, not PPD test."
+    },
+    {
+      "field_name": "Clinical CB.7",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "TB test conducted using IGRA option."
+    },
+    {
+      "field_name": "Clinical CB.8",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Chest x-ray not selected for TB test."
+    },
+    {
+      "field_name": "Clinical CB.9",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "TB results indicated as negative."
+    },
+    {
+      "field_name": "Clinical CB.10",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "TB test results negative."
+    },
+    {
+      "field_name": "Clinical CB.11",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "TB result not unknown, indicated as negative."
+    },
+    {
+      "field_name": "Clinical CB.12",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "No information on latent TB treatment initiation."
+    },
+    {
+      "field_name": "Clinical CB.13",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "No information on completion of latent TB treatment."
+    },
+    {
+      "field_name": "Clinical CB.14",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "No indication of latent TB without treatment."
+    },
+    {
+      "field_name": "Clinical CB.15",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "No active TB indicated, confirmed negative test."
+    },
+    {
+      "field_name": "Clinical CB.19",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "Confirmed diagnosis of Crohn's disease with required information."
+    },
+    {
+      "field_name": "Clinical CB.20",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "No other indication for 'No' response apart from diagnostic confirmation."
+    },
+    {
+      "field_name": "Clinical CB.21",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.95,
+      "reasoning": "Patient getting TB screened."
+    },
+    {
+      "field_name": "Clinical CB.22a",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "No indicator for TB treatment rejection."
+    },
+    {
+      "field_name": "Clinical CB.23a",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "Patient status confirmed for treatment initiation in clinical details."
+    },
+    {
+      "field_name": "Clinical CB.24a",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Patient still in loading dose phase under continuation protocols."
+    },
+    {
+      "field_name": "Clinical CB.25",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.95,
+      "reasoning": "Loading dose schedule verified as current."
+    },
+    {
+      "field_name": "Clinical CB.26",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Indication of still receiving therapy, not completed loading phase."
+    },
+    {
+      "field_name": "Clinical T.16",
+      "field_type": "text",
+      "suggested_value": "600mg IV at weeks 0, 4, 8",
+      "confidence": 0.95,
+      "reasoning": "Loading dose schedule specified in request."
+    },
+    {
+      "field_name": "Clinical T.17",
+      "field_type": "text",
+      "suggested_value": "360mg SQ",
+      "confidence": 0.95,
+      "reasoning": "Maintenance dose confirmed as per the product information."
+    },
+    {
+      "field_name": "Clinical T.18",
+      "field_type": "text",
+      "suggested_value": "8",
+      "confidence": 0.95,
+      "reasoning": "Frequency of maintenance phase indicated as every 8 weeks."
+    },
+    {
+      "field_name": "Clinical CB.27",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.95,
+      "reasoning": "Loading dosage schedule confirmed for less than 12 weeks."
+    },
+    {
+      "field_name": "Clinical CB.28a",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Alignment with new treatment initiation schedule confirmed."
+    },
+    {
+      "field_name": "Clinical T.42",
+      "field_type": "text",
+      "suggested_value": "05",
+      "confidence": 0.95,
+      "reasoning": "Date of acknowledgement provided as 05/30/2023."
+    },
+    {
+      "field_name": "Clinical T.43",
+      "field_type": "text",
+      "suggested_value": "30",
+      "confidence": 0.95,
+      "reasoning": "Date of acknowledgement provided as 05/30/2023."
+    },
+    {
+      "field_name": "Clinical T.44",
+      "field_type": "text",
+      "suggested_value": "2023",
+      "confidence": 0.95,
+      "reasoning": "Date of acknowledgement provided as 05/30/2023."
+    }
+  ]
+}

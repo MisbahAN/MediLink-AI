@@ -1,0 +1,607 @@
+{
+  "type": "object",
+  "populated_widgets": [
+    {
+      "field_name": "T2",
+      "field_type": "text",
+      "suggested_value": "05",
+      "confidence": 0.95,
+      "reasoning": "First rituximab dose scheduled 05/22/2024"
+    },
+    {
+      "field_name": "T3",
+      "field_type": "text",
+      "suggested_value": "22",
+      "confidence": 0.95,
+      "reasoning": "First rituximab dose scheduled 05/22/2024"
+    },
+    {
+      "field_name": "T4",
+      "field_type": "text",
+      "suggested_value": "2024",
+      "confidence": 0.95,
+      "reasoning": "First rituximab dose scheduled 05/22/2024"
+    },
+    {
+      "field_name": "CB1",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "This is start of treatment request"
+    },
+    {
+      "field_name": "CB5",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Not a continuation request"
+    },
+    {
+      "field_name": "T6",
+      "field_type": "text",
+      "suggested_value": "06",
+      "confidence": 0.85,
+      "reasoning": "Second dose due week of June 3"
+    },
+    {
+      "field_name": "T7",
+      "field_type": "text",
+      "suggested_value": "03",
+      "confidence": 0.85,
+      "reasoning": "Second dose due week of June 3"
+    },
+    {
+      "field_name": "T8",
+      "field_type": "text",
+      "suggested_value": "2024",
+      "confidence": 0.85,
+      "reasoning": "Second dose due week of June 3"
+    },
+    {
+      "field_name": "T9",
+      "field_type": "text",
+      "suggested_value": "Erran Rostami",
+      "confidence": 0.9,
+      "reasoning": "Precertification requested by Erran Rostami, RN"
+    },
+    {
+      "field_name": "T10",
+      "field_type": "text",
+      "suggested_value": "615-343-1176",
+      "confidence": 0.9,
+      "reasoning": "Phone from sender info"
+    },
+    {
+      "field_name": "T11",
+      "field_type": "text",
+      "suggested_value": "615-343-1219",
+      "confidence": 0.9,
+      "reasoning": "Fax from sender info"
+    },
+    {
+      "field_name": "T12",
+      "field_type": "text",
+      "suggested_value": "Shakh",
+      "confidence": 0.95,
+      "reasoning": "Patient first name on demographic page"
+    },
+    {
+      "field_name": "T13",
+      "field_type": "text",
+      "suggested_value": "Abdulla",
+      "confidence": 0.95,
+      "reasoning": "Patient last name on demographic page"
+    },
+    {
+      "field_name": "T14",
+      "field_type": "text",
+      "suggested_value": "04/01/2001",
+      "confidence": 0.95,
+      "reasoning": "DOB from MRN record"
+    },
+    {
+      "field_name": "T15",
+      "field_type": "text",
+      "suggested_value": "425 Sherman Ave Apt D",
+      "confidence": 0.9,
+      "reasoning": "Street address on hospital face sheet"
+    },
+    {
+      "field_name": "T16",
+      "field_type": "text",
+      "suggested_value": "Nashville",
+      "confidence": 0.9,
+      "reasoning": "City from demographic sheet"
+    },
+    {
+      "field_name": "T17",
+      "field_type": "text",
+      "suggested_value": "TN",
+      "confidence": 0.9,
+      "reasoning": "State from demographic sheet"
+    },
+    {
+      "field_name": "T18",
+      "field_type": "text",
+      "suggested_value": "37995",
+      "confidence": 0.9,
+      "reasoning": "ZIP from demographic sheet"
+    },
+    {
+      "field_name": "T19",
+      "field_type": "text",
+      "suggested_value": "865-395-3958",
+      "confidence": 0.95,
+      "reasoning": "Home phone from demographic page"
+    },
+    {
+      "field_name": "T20",
+      "field_type": "text",
+      "suggested_value": null,
+      "confidence": 0.3,
+      "reasoning": "No work phone provided"
+    },
+    {
+      "field_name": "T21",
+      "field_type": "text",
+      "suggested_value": "865-395-0481",
+      "confidence": 0.95,
+      "reasoning": "Mobile phone from demographic page"
+    },
+    {
+      "field_name": "T22",
+      "field_type": "text",
+      "suggested_value": null,
+      "confidence": 0.3,
+      "reasoning": "No email provided"
+    },
+    {
+      "field_name": "T23",
+      "field_type": "text",
+      "suggested_value": "No Known Allergies",
+      "confidence": 0.95,
+      "reasoning": "Allergies noted as none"
+    },
+    {
+      "field_name": "T28",
+      "field_type": "text",
+      "suggested_value": "LAJM14345116",
+      "confidence": 0.95,
+      "reasoning": "Member ID from coverage section"
+    },
+    {
+      "field_name": "CB31",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "Other coverage? No"
+    },
+    {
+      "field_name": "CB32",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.8,
+      "reasoning": "Other coverage? No"
+    },
+    {
+      "field_name": "T29",
+      "field_type": "text",
+      "suggested_value": "435000",
+      "confidence": 0.95,
+      "reasoning": "Group number from coverage section"
+    },
+    {
+      "field_name": "T33",
+      "field_type": "text",
+      "suggested_value": null,
+      "confidence": 0.3,
+      "reasoning": "No secondary ID"
+    },
+    {
+      "field_name": "T34",
+      "field_type": "text",
+      "suggested_value": null,
+      "confidence": 0.3,
+      "reasoning": "No other carrier"
+    },
+    {
+      "field_name": "T30",
+      "field_type": "text",
+      "suggested_value": "Shakh Abdulla",
+      "confidence": 0.9,
+      "reasoning": "Subscriber is patient"
+    },
+    {
+      "field_name": "T35",
+      "field_type": "text",
+      "suggested_value": null,
+      "confidence": 0.3,
+      "reasoning": "No dependent insured"
+    },
+    {
+      "field_name": "CB44",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.95,
+      "reasoning": "Prescriber is MD"
+    },
+    {
+      "field_name": "CB45",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.95,
+      "reasoning": "Not a DO"
+    },
+    {
+      "field_name": "CB46",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.95,
+      "reasoning": "Not an NP"
+    },
+    {
+      "field_name": "CB47",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.95,
+      "reasoning": "Not a PA"
+    },
+    {
+      "field_name": "T42",
+      "field_type": "text",
+      "suggested_value": "Hao H",
+      "confidence": 0.95,
+      "reasoning": "Prescriber first name from signature"
+    },
+    {
+      "field_name": "T43",
+      "field_type": "text",
+      "suggested_value": "Gu",
+      "confidence": 0.95,
+      "reasoning": "Prescriber last name from signature"
+    },
+    {
+      "field_name": "T48",
+      "field_type": "text",
+      "suggested_value": "3320 Montgomery Dr",
+      "confidence": 0.95,
+      "reasoning": "Prescriber address from header"
+    },
+    {
+      "field_name": "T49",
+      "field_type": "text",
+      "suggested_value": "Nashville",
+      "confidence": 0.95,
+      "reasoning": "Prescriber city from header"
+    },
+    {
+      "field_name": "T50",
+      "field_type": "text",
+      "suggested_value": "TN",
+      "confidence": 0.95,
+      "reasoning": "Prescriber state from header"
+    },
+    {
+      "field_name": "T51",
+      "field_type": "text",
+      "suggested_value": "37361",
+      "confidence": 0.95,
+      "reasoning": "Prescriber ZIP from header"
+    },
+    {
+      "field_name": "T52",
+      "field_type": "text",
+      "suggested_value": "614-936-0065",
+      "confidence": 0.9,
+      "reasoning": "Prescriber phone from fax cover"
+    },
+    {
+      "field_name": "T53",
+      "field_type": "text",
+      "suggested_value": "615-562-4820",
+      "confidence": 0.9,
+      "reasoning": "Prescriber fax from header"
+    },
+    {
+      "field_name": "T55",
+      "field_type": "text",
+      "suggested_value": "1154611523",
+      "confidence": 0.95,
+      "reasoning": "Prescriber NPI from signature block"
+    },
+    {
+      "field_name": "Provider Admin CB.4",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "Administration at outpatient infusion center"
+    },
+    {
+      "field_name": "Provider Admin T.5",
+      "field_type": "text",
+      "suggested_value": "Golden Gate Infusion Center",
+      "confidence": 0.9,
+      "reasoning": "Infusion site name from To: line"
+    },
+    {
+      "field_name": "Provider Admin T.6",
+      "field_type": "text",
+      "suggested_value": "614-295-7655",
+      "confidence": 0.9,
+      "reasoning": "Infusion site phone from To: line"
+    },
+    {
+      "field_name": "CB60",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "Not requesting Riabni"
+    },
+    {
+      "field_name": "CB61",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "Not requesting Rituxan"
+    },
+    {
+      "field_name": "CB62",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "Not requesting Ruxience"
+    },
+    {
+      "field_name": "CB63",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.95,
+      "reasoning": "Requesting Truxima (rituximab-abbs)"
+    },
+    {
+      "field_name": "T64",
+      "field_type": "text",
+      "suggested_value": "694 mg",
+      "confidence": 0.95,
+      "reasoning": "Dose from infusion order"
+    },
+    {
+      "field_name": "T65",
+      "field_type": "text",
+      "suggested_value": "375 mg/m2 IV infusion on days 1 and 15, then every 24 weeks",
+      "confidence": 0.9,
+      "reasoning": "Directions from therapy plan summary"
+    },
+    {
+      "field_name": "T66",
+      "field_type": "text",
+      "suggested_value": "J9312",
+      "confidence": 0.6,
+      "reasoning": "Common HCPCS for rituximab"
+    },
+    {
+      "field_name": "T67",
+      "field_type": "text",
+      "suggested_value": "G35",
+      "confidence": 0.95,
+      "reasoning": "Primary ICD code for MS"
+    },
+    {
+      "field_name": "CB68",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "No other ICD code selected"
+    },
+    {
+      "field_name": "T69",
+      "field_type": "text",
+      "suggested_value": null,
+      "confidence": 0.3,
+      "reasoning": "No additional ICD provided"
+    },
+    {
+      "field_name": "CB70",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.85,
+      "reasoning": "No prior rituximab in past year"
+    },
+    {
+      "field_name": "CB71",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.85,
+      "reasoning": "No prior therapy"
+    },
+    {
+      "field_name": "CB72",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.8,
+      "reasoning": "No trial of biosimilars"
+    },
+    {
+      "field_name": "CB73",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "No Ruxience trial failure"
+    },
+    {
+      "field_name": "CB74",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "No Truxima trial failure"
+    },
+    {
+      "field_name": "CB77",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.8,
+      "reasoning": "No adverse reaction to biosimilars"
+    },
+    {
+      "field_name": "CB82",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "No contraindication to Ruxience"
+    },
+    {
+      "field_name": "CB83",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "No contraindication to Truxima"
+    },
+    {
+      "field_name": "CB85",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.8,
+      "reasoning": "No trial of infusion biosimilars"
+    },
+    {
+      "field_name": "CB91",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.8,
+      "reasoning": "No adverse reaction to infusion biosimilars"
+    },
+    {
+      "field_name": "CB115",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "No contraindication to infusion biosimilars"
+    },
+    {
+      "field_name": "CB119",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "No contraindication to conventional DMARDs"
+    },
+    {
+      "field_name": "CB164",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.95,
+      "reasoning": "Relapsing-remitting MS type"
+    },
+    {
+      "field_name": "CB165",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.95,
+      "reasoning": "Not SPMS"
+    },
+    {
+      "field_name": "CB166",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.95,
+      "reasoning": "Not PPMS"
+    },
+    {
+      "field_name": "CB167",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.95,
+      "reasoning": "Not PRMS"
+    },
+    {
+      "field_name": "CB168",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "No discontinued MS meds noted"
+    },
+    {
+      "field_name": "CB170",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "No MG diagnosis"
+    },
+    {
+      "field_name": "CB171",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.8,
+      "reasoning": "No MG diagnosis"
+    },
+    {
+      "field_name": "CB172",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "No immunotherapy failure noted"
+    },
+    {
+      "field_name": "CB173",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.8,
+      "reasoning": "Immunotherapy not applicable"
+    },
+    {
+      "field_name": "CB175",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.8,
+      "reasoning": "No NMO"
+    },
+    {
+      "field_name": "CB203",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.9,
+      "reasoning": "Initial request, not continuation"
+    },
+    {
+      "field_name": "CB204",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.9,
+      "reasoning": "Initial request flag"
+    },
+    {
+      "field_name": "CB205",
+      "field_type": "checkbox",
+      "suggested_value": "Off",
+      "confidence": 0.8,
+      "reasoning": "Not due to sample receipt"
+    },
+    {
+      "field_name": "CB206",
+      "field_type": "checkbox",
+      "suggested_value": "On",
+      "confidence": 0.8,
+      "reasoning": "Not sample-based"
+    },
+    {
+      "field_name": "T317",
+      "field_type": "text",
+      "suggested_value": "06",
+      "confidence": 0.85,
+      "reasoning": "Month of last dose 06/03/2024"
+    },
+    {
+      "field_name": "T318",
+      "field_type": "text",
+      "suggested_value": "03",
+      "confidence": 0.85,
+      "reasoning": "Day of last dose 06/03/2024"
+    },
+    {
+      "field_name": "T319",
+      "field_type": "text",
+      "suggested_value": "2024",
+      "confidence": 0.85,
+      "reasoning": "Year of last dose 06/03/2024"
+    }
+  ]
+}
