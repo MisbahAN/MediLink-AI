@@ -18,9 +18,9 @@ MediLink AI leverages Google's Gemini AI to intelligently extract patient inform
 
 ```
 MediLink-AI/
-├── app.py                 # Main Streamlit application
-├── requirements.txt       # Python dependencies
-├── .env                  # Environment variables (API keys)
+├── app.py               # Main Streamlit application
+├── requirements.txt     # Python dependencies
+├── .env                 # Environment variables (API keys)
 ├── .gitignore           # Git ignore file
 └── README.md            # Project documentation
 ```
@@ -94,7 +94,7 @@ cd MediLink-AI
 ### 2. Create Virtual Environment
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
@@ -104,21 +104,39 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 4. Configure Environment Variables
+### 4. Configure API Key
 
-Create a `.env` file in the root directory:
+Create a `.env` file in the root directory and add your Gemini API key:
 
 ```env
 GOOGLE_API_KEY=your_gemini_api_key_here
 ```
 
+**To get a Gemini API key:**
+
+1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
+2. Create a new API key
+3. Copy and paste it into the `.env` file
+
 ### 5. Run the Application
 
 ```bash
+# Make sure virtual environment is activated
 streamlit run app.py
 ```
 
 The application will open in your browser at `http://localhost:8501`.
+
+### Quick Start Commands
+
+```bash
+# Complete setup in one go:
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+# Create .env file with GOOGLE_API_KEY=your_api_key_here
+streamlit run app.py
+```
 
 ## 💻 Usage
 
