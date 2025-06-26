@@ -6,6 +6,14 @@ An intelligent medical form automation system that uses AI to automatically fill
 
 MediLink AI leverages Google's Gemini AI to intelligently extract patient information from medical referral packages and automatically populate Prior Authorization forms. The system uses advanced PDF processing, OCR capabilities, and natural language processing to understand medical documents and map relevant information to form fields.
 
+## 📺 Watch Demo
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=74gyvphig04" target="_blank">
+    <img src="https://img.youtube.com/vi/74gyvphig04/0.jpg" alt="Watch Demo" width="560"/>
+  </a>
+</p>
+
 ## ✨ Features
 
 - **Intelligent Document Processing**: Extracts patient information from complex medical referral packages
